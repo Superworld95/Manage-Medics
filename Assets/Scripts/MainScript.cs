@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class MainScript : MonoBehaviour
 {
-    public gameObject[] medicStaff = new gameObject[8];
+    public GameObject[] medicStaff = new GameObject[8];
     public MedicScript medicScript;
     public int health = 6, score = 0;
     
@@ -13,10 +15,10 @@ public class MainScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        uIInformation[0].setactive(false);
-        uIInformation[1].setactive(false);
-        uIInformation[2].setactive(false);
-        uIInformation[3].setactive(false);
+    //    uIInformation[0].setactive(false);
+    //    uIInformation[1].setactive(false);
+    //    uIInformation[2].setactive(false);
+    //    uIInformation[3].setactive(false);
     }
 
     // Update is called once per frame
@@ -32,6 +34,6 @@ public class MainScript : MonoBehaviour
 
     public void PlaySoundEffect(int num)
     {
-        audioClips[num].Play();
+        audioSource.PlayOneShot(audioClips[num]);
     }
 }
