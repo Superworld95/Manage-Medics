@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using TMPro;
 
 
@@ -9,6 +10,7 @@ public class MedicScript : MonoBehaviour
     public Rigidbody2D rb;
     public Transform[] nodes = new Transform[10];
     public int nodeCount = 0;
+    public int medicNumber = 0;
     public int profession = 0; //Matches the possible patient ailments.
     public float durationAmount = 10f;
     public float duration = 0f;
@@ -20,11 +22,54 @@ public class MedicScript : MonoBehaviour
     public TMP_Text[] uIInformation = new TMP_Text[4];
     public float travelSpeed = 0.1f;
     public PatientScript patientScript;
+    public QueueNodeScript queueNodeScript;
+
+    public BoxCollider2D boxCollider;
+    public InputActionAsset inputAsset;
+
+    public Vector2 worldPos;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        boxCollider = GetComponent<BoxCollider2D>();
+        uIInformation[0].gameObject.SetActive(false);
+        uIInformation[1].gameObject.SetActive(false);
+        uIInformation[2].gameObject.SetActive(false);
+        uIInformation[3].gameObject.SetActive(false);
+        uIInformation[4].gameObject.SetActive(false);
+        uIInformation[5].gameObject.SetActive(false);
+        uIInformation[6].gameObject.SetActive(false);
+    }
+
+    void Update()
+    {
+        worldPos = Camera.main.ScreenToWorldPoint((inputAsset.FindAction("Point").ReadValue<Vector2>()));
+        if (Vector2.Distance(worldPos, rb.transform.position) <= 1f && !uIInformation[6].gameObject.active)
+        {
+            OnMouseOverMethod();
+            if (inputAsset.FindAction("Click").WasReleasedThisFrame())
+            {
+                OnMouseUpMethod();
+            }
+        }
+        else if (uIInformation[6].gameObject.active /*&& Vector2.Distance(worldPos, uIInformation[6].gameObject.transform.position) <= 3f */)
+        {
+            if (inputAsset.FindAction("Click").WasReleasedThisFrame() && Vector2.Distance(worldPos, rb.transform.position) <= 1f)
+            {
+                //print("Close the tasks UI.");
+                OnMouseExitMethod();
+            }
+        }
+        else
+        {
+            if (uIInformation[0].gameObject)//active
+            {
+                OnMouseExitMethod();
+            }
+
+        }
     }
 
     // Update is called once per frame
@@ -32,10 +77,21 @@ public class MedicScript : MonoBehaviour
     {
         if (clickedOn && awaitingSchedule)
         {
-            uIInformation[0].gameObject.SetActive(true);
-            uIInformation[1].gameObject.SetActive(true);
-            uIInformation[2].gameObject.SetActive(true);
-            uIInformation[3].gameObject.SetActive(true);
+            if (task3Chosen)
+            {
+                uIInformation[0].gameObject.SetActive(true);
+                uIInformation[1].gameObject.SetActive(true);
+                uIInformation[2].gameObject.SetActive(true);
+                uIInformation[3].gameObject.SetActive(true);
+                uIInformation[4].gameObject.SetActive(true);
+                uIInformation[5].gameObject.SetActive(true);
+            }
+            else
+            {
+                uIInformation[6].gameObject.SetActive(true);
+                //Show schedule planner.
+            }
+                        
             if (doingWrongOperation)
             {
                 doingWrongOperation = false;
@@ -43,87 +99,146 @@ public class MedicScript : MonoBehaviour
 
         }
         else if (clickedOn && !awaitingSchedule) {
-            uIInformation[4].gameObject.SetActive(true);
+            //uIInformation[4].gameObject.SetActive(true);
+
+            //if (uIInformation[6].gameObject)
+            //{
+            //    uIInformation[6].gameObject.SetActive(false);
+            //} else
+            //{
+            //    uIInformation[6].gameObject.SetActive(true);
+            //}
+
+            
         } else
         {
             uIInformation[0].gameObject.SetActive(false);
             uIInformation[1].gameObject.SetActive(false);
             uIInformation[2].gameObject.SetActive(false);
-            uIInformation[3].gameObject.SetActive(true);
-            uIInformation[4].gameObject.SetActive(true);
+            uIInformation[3].gameObject.SetActive(false);
+            uIInformation[4].gameObject.SetActive(false);
+            uIInformation[5].gameObject.SetActive(false);
+            uIInformation[6].gameObject.SetActive(false);
+            //Close other information
         }
+
+        
+
 
         if (!awaitingSchedule)
         {
-            if (Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position) >= 0.1f)
+            if(nodes[nodeCount].GetComponent<QueueNodeScript>() != null)
             {
-                if (rb.transform.position.x > nodes[nodeCount].transform.position.x + 0.5f)
+                queueNodeScript = nodes[nodeCount].GetComponent<QueueNodeScript>();
+            }            
+            if (queueNodeScript != null)
+            {
+                if (Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position) >= 0.1f && !queueNodeScript.isOccupied)
                 {
-                    rb.transform.position += new Vector3(-travelSpeed, 0f, 0f);
-                    //print("Moving along -x");
+                    if (rb.transform.position.x > nodes[nodeCount].transform.position.x + 0.5f)
+                    {
+                        rb.transform.position += new Vector3(-travelSpeed, 0f, 0f);
+                        //print("Moving along -x");
+                    }
+                    else if (rb.transform.position.x < nodes[nodeCount].transform.position.x - 0.5f)
+                    {
+                        rb.transform.position += new Vector3(travelSpeed, 0f, 0f);
+                        //print("Moving along x");
+                    }
+                    if (rb.transform.position.y > nodes[nodeCount].transform.position.y + 0.5f)
+                    {
+                        rb.transform.position += new Vector3(0f, -travelSpeed, 0f);
+                        //print("Moving along -y");
+                    }
+                    else if (rb.transform.position.y < nodes[nodeCount].transform.position.y - 0.5f)
+                    {
+                        rb.transform.position += new Vector3(0f, travelSpeed, 0f);
+                        //print("Moving along y");
+                    }
+
                 }
-                else if (rb.transform.position.x < nodes[nodeCount].transform.position.x - 0.5f)
+            }
+            else
+            {
+                if (!task3Chosen)
                 {
-                    rb.transform.position += new Vector3(travelSpeed, 0f, 0f);
-                    //print("Moving along x");
-                }
-                if (rb.transform.position.y > nodes[nodeCount].transform.position.y + 0.5f)
+
+                } else if (Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position) >= 0.1f)
                 {
-                    rb.transform.position += new Vector3(0f, -travelSpeed, 0f);
-                    //print("Moving along -y");
-                }
-                else if (rb.transform.position.y < nodes[nodeCount].transform.position.y - 0.5f)
-                {
-                    rb.transform.position += new Vector3(0f, travelSpeed, 0f);
-                    //print("Moving along y");
+                    if (rb.transform.position.x > nodes[nodeCount].transform.position.x + 0.5f)
+                    {
+                        rb.transform.position += new Vector3(-travelSpeed, 0f, 0f);
+                        //print("Moving along -x");
+                    }
+                    else if (rb.transform.position.x < nodes[nodeCount].transform.position.x - 0.5f)
+                    {
+                        rb.transform.position += new Vector3(travelSpeed, 0f, 0f);
+                        //print("Moving along x");
+                    }
+                    if (rb.transform.position.y > nodes[nodeCount].transform.position.y + 0.5f)
+                    {
+                        rb.transform.position += new Vector3(0f, -travelSpeed, 0f);
+                        //print("Moving along -y");
+                    }
+                    else if (rb.transform.position.y < nodes[nodeCount].transform.position.y - 0.5f)
+                    {
+                        rb.transform.position += new Vector3(0f, travelSpeed, 0f);
+                        //print("Moving along y");
+                    }
+
                 }
 
             }
 
-        //switch (Random.Range(0, 8))
-        //{
-        //    case 0: doingWrongOperation = true;
-        //        break;
-        //        default: break;
-        //}
+
+            //switch (Random.Range(0, 8))
+            //{
+            //    case 0: doingWrongOperation = true;
+            //        break;
+            //        default: break;
+            //}
 
 
-        if (duration <= 0f || patientScript.time <= 0f)
+            if (duration <= 0f || patientScript.time <= 0f)
             {
                 isWorking = false;
                 nodeCount++;
                 taskToDo++;
             }
 
-        if (isWorking)
+            if (isWorking)
             {
                 duration = 500f;
                 if (patientScript.ailment != profession)
                 {
                     durationAmount = 5f;
-                } else
+                }
+                else
                 {
                     durationAmount = 15f;
                 }
                 duration -= durationAmount;
             }
-        uIInformation[4].text = duration + " seconds";//Format this into mins.
-    }
+            uIInformation[4].text = duration + " seconds";//Format this into mins.
+        } }
 
-    void OnMouseDown()
+    public void OnMouseUpMethod()
     {
         clickedOn = true;
+        //print("Mouse clicked on Medic #" +medicNumber);
     }
-    void OnMouseEnter()
+    public void OnMouseOverMethod()
     {
-        //Some kind of indication that you can click.
+        //Some kind of indication that you can click
+        //print("Mouse over Medic #" +medicNumber);
     }
-    void OnMouseExit()
+    public void OnMouseExitMethod()
     {
         clickedOn = false;
+        //print("Mouse exited Medic #" + medicNumber);
     }
 
-    void OnTriggerEnter2D(Collider collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Patient")
         {
@@ -131,4 +246,4 @@ public class MedicScript : MonoBehaviour
             patientScript = collision.gameObject.GetComponent<PatientScript>();
         }
     }
-}}
+}
