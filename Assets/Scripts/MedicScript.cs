@@ -17,12 +17,12 @@ public class MedicScript : MonoBehaviour
     public int[] destinations = new int[3]; //1 to 8.
     public bool task1Chosen = false, task2Chosen = false, task3Chosen = false;
     public int taskToDo = 0;
-    public bool awaitingSchedule = true;
+    public bool awaitingSchedule = false;
     public bool clickedOn = false, doingWrongOperation = false, isWorking = false;
     public TMP_Text[] uIInformation = new TMP_Text[4];
-    public float travelSpeed = 0.1f;
+    public float travelSpeed = 0.01f;
     public PatientScript patientScript;
-    public QueueNodeScript queueNodeScript;
+    public QueueNodeScript queueNodeScript, queueNodeScript2;
 
     public BoxCollider2D boxCollider;
     public InputActionAsset inputAsset;
@@ -157,6 +157,18 @@ public class MedicScript : MonoBehaviour
                     }
 
                 }
+
+                if (nodes[nodeCount+1].GetComponent<QueueNodeScript>() != null)
+                {
+                    queueNodeScript2 = nodes[nodeCount+1].GetComponent<QueueNodeScript>();
+                }
+                if (queueNodeScript != null && queueNodeScript2 != null)
+                {
+                    if (!queueNodeScript2.isOccupied && !queueNodeScript.isOccupied && Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position) <= 1f)
+                    {
+                        nodeCount++;
+                    }
+                }
             }
             else
             {
@@ -198,13 +210,16 @@ public class MedicScript : MonoBehaviour
             //        default: break;
             //}
 
-
-            if (duration <= 0f || patientScript.time <= 0f)
-            {
-                isWorking = false;
-                nodeCount++;
-                taskToDo++;
+            if (patientScript != null) {
+                if (duration <= 0f || patientScript.time <= 0f)
+                {
+                    isWorking = false;
+                    nodeCount++;
+                    taskToDo++;
+                }
             }
+
+            
 
             if (isWorking)
             {
@@ -220,7 +235,9 @@ public class MedicScript : MonoBehaviour
                 duration -= durationAmount;
             }
             uIInformation[4].text = duration + " seconds";//Format this into mins.
-        } }
+        }
+    
+    }
 
     public void OnMouseUpMethod()
     {
@@ -244,6 +261,10 @@ public class MedicScript : MonoBehaviour
         {
             isWorking = true;
             patientScript = collision.gameObject.GetComponent<PatientScript>();
+        }
+        if (collision.gameObject.tag == "Node")
+        {
+            nodeCount++;
         }
     }
 }
