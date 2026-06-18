@@ -35,6 +35,11 @@ public class PatientScript : MonoBehaviour
     void Update()
     {
         worldPos = Camera.main.ScreenToWorldPoint((inputAsset.FindAction("Point").ReadValue<Vector2>()));
+        if (Vector2.Distance(worldPos, rb.transform.position) <= 1f && inputAsset.FindAction("Click").WasReleasedThisFrame())
+        {
+            OnMouseUpMethod();
+        }
+
         if (time <= 1f)
         {
             mainScript.LoseScore(scoreValue);
@@ -79,6 +84,13 @@ public class PatientScript : MonoBehaviour
         
     }
 
+    public void OnMouseUpMethod()
+    {
+        if (mainScript != null)
+        {
+            mainScript.numberLastClicked = patientNumber;
+        }
+    }
     public void OnMouseOverMethod()
     {
         //print("Mouse over Patient #"+patientNumber);

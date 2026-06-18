@@ -120,7 +120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5989773972821627450}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 350048747905671942}
+        m_TargetAssemblyTypeName: MedicScript, Assembly-CSharp
+        m_MethodName: Button3Pressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2391572477762283722
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +253,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7954753102811914586}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 350048747905671942}
+        m_TargetAssemblyTypeName: MedicScript, Assembly-CSharp
+        m_MethodName: Button1Pressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2807781242832805898
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,7 +386,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4015705291885287380}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 350048747905671942}
+        m_TargetAssemblyTypeName: MedicScript, Assembly-CSharp
+        m_MethodName: Button2Pressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2968984115330394083
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,7 +804,7 @@ MonoBehaviour:
   task2Chosen: 0
   task3Chosen: 0
   taskToDo: 0
-  awaitingSchedule: 1
+  awaitingSchedule: 0
   clickedOn: 0
   doingWrongOperation: 0
   isWorking: 0
@@ -780,9 +816,10 @@ MonoBehaviour:
   - {fileID: 5132795609862484490}
   - {fileID: 7330115021709211672}
   - {fileID: 5645716230439645980}
-  travelSpeed: 0.1
   patientScript: {fileID: 0}
   queueNodeScript: {fileID: 0}
+  queueNodeScript2: {fileID: 0}
+  mainScript: {fileID: 0}
   boxCollider: {fileID: 0}
   inputAsset: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   worldPos: {x: 0, y: 0}

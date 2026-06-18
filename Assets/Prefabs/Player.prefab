@@ -78,6 +78,8 @@ MonoBehaviour:
   - {fileID: 0}
   medicineSuppliesA: 0
   inputAsset: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  taskChosen: 0
+  numberLastClicked: 0
 --- !u!82 &9195208673886000095
 AudioSource:
   m_ObjectHideFlags: 0
