@@ -16,7 +16,7 @@ public class MainScript : MonoBehaviour
 
     public InputActionAsset inputAsset;
     public int taskChosen = 0, numberLastClicked = 0;
-
+    public TMP_Text scoreNum, hPNum;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,7 +33,8 @@ public class MainScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        scoreNum.text = score+"";
+        hPNum.text = health + "";
     }
 
     private void FixedUpdate()
@@ -76,9 +77,12 @@ public class MainScript : MonoBehaviour
             {
                 case 0: break;
                     case 1:
-                    medicScript.task1Chosen = true; break;
-                case 2: medicScript.task2Chosen = true; break;
-                case 3: medicScript.task3Chosen = true; break;
+                    medicScript.task1Chosen = true;
+                    medicScript.buttonText[0].text = numberLastClicked+"";
+                    medicScript.duration = 60f;
+                    break;
+                case 2: medicScript.task2Chosen = true; medicScript.buttonText[1].text = numberLastClicked + ""; medicScript.duration = 50f; break;                    
+                case 3: medicScript.task3Chosen = true; medicScript.buttonText[2].text = numberLastClicked + ""; medicScript.duration = 30f; break;                    
             }
             taskChosen = 0;
             numberLastClicked = 0;
@@ -86,10 +90,12 @@ public class MainScript : MonoBehaviour
 
     }
 
-    public void LoseScore(int amount) {
+    public void LoseScore(int amount) {//Need to incorporate this.
         score -= amount;
         health--;
     }
+
+    
 
     public void PlaySoundEffect(int num)
     {

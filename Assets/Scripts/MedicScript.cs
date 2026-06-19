@@ -20,7 +20,7 @@ public class MedicScript : MonoBehaviour
     public int taskToDo = 0;
     public bool awaitingSchedule = false;
     public bool clickedOn = false, doingWrongOperation = false, isWorking = false;
-    public TMP_Text[] uIInformation = new TMP_Text[4];
+    public TMP_Text[] uIInformation = new TMP_Text[4], buttonText = new TMP_Text[3];
     float travelSpeed = 0.05f;
     public PatientScript patientScript;
     public QueueNodeScript queueNodeScript, queueNodeScript2;
@@ -74,6 +74,41 @@ public class MedicScript : MonoBehaviour
             }
 
         }
+
+
+
+        if (taskToDo < 3)
+        {
+            switch (destinations[taskToDo])
+            {
+                case 0: break;
+                case 3:
+                    switch (nodeCount)
+                    {
+                        case 7: nodeCount = 9; break;
+                    }
+                    break;
+                case 4:
+                    switch (nodeCount)
+                    {
+                        case 7: nodeCount = 10; break;
+                    }
+                    break;
+            }
+        } else if (nodeCount == 22)
+        {
+            task1Chosen = false;
+            task2Chosen = false;
+            task3Chosen = false;
+            buttonText[0].text = "?";
+            buttonText[1].text = "?";
+            buttonText[2].text = "?";
+        }
+
+        
+
+
+
     }
 
     // Update is called once per frame
@@ -86,7 +121,7 @@ public class MedicScript : MonoBehaviour
 
         if (clickedOn && awaitingSchedule)
         {
-            print("This should display.");
+            //print("This should display.");
 
             uIInformation[4].gameObject.SetActive(true);
             uIInformation[5].gameObject.SetActive(true);
@@ -191,6 +226,12 @@ public class MedicScript : MonoBehaviour
 
         
         //queueNodeScript = null; queueNodeScript2 = null;
+
+        if (!isWorking)
+        {
+
+        
+
         if (nodes[nodeCount].GetComponent<QueueNodeScript>() != null)
         {
             queueNodeScript = nodes[nodeCount].GetComponent<QueueNodeScript>();
@@ -239,7 +280,7 @@ public class MedicScript : MonoBehaviour
                     //print("Moving along y");
                 }
                 //awaitingSchedule = false;
-            } else if (!(task1Chosen && task2Chosen && task3Chosen))
+            } else if (!(task1Chosen && task2Chosen && task3Chosen) && nodeCount < 21)
             {
                 awaitingSchedule = true;
             }
@@ -300,27 +341,46 @@ public class MedicScript : MonoBehaviour
         //        default: break;
         //}
 
-        if (patientScript != null) {
+        
+        }
+        if (patientScript != null)
+        {
             if (duration <= 0f || patientScript.time <= 0f)
             {
+                //print("Duration: " + duration+" patientTime: "+ patientScript.time);
                 isWorking = false;
                 nodeCount++;
+                
                 taskToDo++;
+                patientScript.gameObject.SetActive(false);
+                patientScript = null;
+
+                if (duration <= 0)
+                {
+                    mainScript.score += 10;
+                } else if (patientScript.time <= 0f)
+                {
+                    mainScript.score -= 10;
+                    mainScript.health--;
+                }
+
+                duration = 10f; //CHANGE THIS TO CALL THE DURATION.
             }
         }
-
-            
-
         if (isWorking && duration <= 0f)
         {
             duration = 500f;
+        }
+
+        if (isWorking && duration >= 0f)
+        {
             if (patientScript.ailment != profession)
             {
-                durationAmount = 5f;
+                durationAmount = 1f / 60f;
             }
             else
             {
-                durationAmount = 15f;
+                durationAmount = 5f / 60f;
             }
             duration -= durationAmount;
         }
@@ -329,11 +389,11 @@ public class MedicScript : MonoBehaviour
         {
             if (Mathf.Floor(duration % 60) < 10)
             {
-                uIInformation[4].text = Mathf.Floor((duration / 60f)) + ":0" + Mathf.Floor(duration % 60);
+                uIInformation[0].text = Mathf.Floor((duration / 60f)) + ":0" + Mathf.Floor(duration % 60);
             }
             else
             {
-                uIInformation[4].text = Mathf.Floor((duration / 60f)) + ":" + Mathf.Floor(duration % 60);
+                uIInformation[0].text = Mathf.Floor((duration / 60f)) + ":" + Mathf.Floor(duration % 60);
             }
         }
             
@@ -357,14 +417,21 @@ public class MedicScript : MonoBehaviour
         //print("Mouse exited Medic #" + medicNumber);
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Patient")
+        if (collision.gameObject.tag == "Patient" && Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position) <= 1f && taskToDo<3)
         {
             isWorking = true;
             patientScript = collision.gameObject.GetComponent<PatientScript>();
+            print("Medic is working!");
         }
-        if (collision.gameObject.tag == "Node")
+
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if (collision.gameObject.tag == "Node" && Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position) <= 1f)
         {
             nodeCount++;
         }

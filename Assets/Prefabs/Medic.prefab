@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -225.4, y: -50.000004}
+  m_AnchoredPosition: {x: -95.43333, y: 0.59999657}
   m_SizeDelta: {x: 49.3198, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6671410162867707999
@@ -169,7 +169,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -368.66666, y: -50.000004}
+  m_AnchoredPosition: {x: -238.7, y: 0.6}
   m_SizeDelta: {x: 49.3198, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4344006575761831116
@@ -302,7 +302,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -296.9, y: -50.000004}
+  m_AnchoredPosition: {x: -166.93332, y: 0.59999657}
   m_SizeDelta: {x: 49.3198, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3122019100951513860
@@ -464,7 +464,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'TIME:'
+  m_text: 'Time:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -761,7 +761,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -798,7 +798,7 @@ MonoBehaviour:
   medicNumber: 0
   profession: 0
   durationAmount: 10
-  duration: 0
+  duration: 1000
   destinations: 000000000000000000000000
   task1Chosen: 0
   task2Chosen: 0
@@ -816,6 +816,10 @@ MonoBehaviour:
   - {fileID: 5132795609862484490}
   - {fileID: 7330115021709211672}
   - {fileID: 5645716230439645980}
+  buttonText:
+  - {fileID: 2300148901635450015}
+  - {fileID: 6595986810241645457}
+  - {fileID: 5264995546128083910}
   patientScript: {fileID: 0}
   queueNodeScript: {fileID: 0}
   queueNodeScript2: {fileID: 0}
@@ -1072,7 +1076,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.35, y: 2.3}
+  m_AnchoredPosition: {x: 4.35, y: 1.62}
   m_SizeDelta: {x: 800.4, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8618985751340343703
@@ -2005,7 +2009,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.75, y: 0.93}
+  m_AnchoredPosition: {x: -0.47, y: 0.93}
   m_SizeDelta: {x: 800.4, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4093941156042729246
@@ -2036,7 +2040,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'SKILL:'
+  m_text: 'Skill:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2173,7 +2177,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'TASK:'
+  m_text: 'Task:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
