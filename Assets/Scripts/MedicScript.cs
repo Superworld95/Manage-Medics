@@ -95,7 +95,7 @@ public class MedicScript : MonoBehaviour
                     }
                     break;
             }
-        } else if (nodeCount == 22)
+        } else if (nodeCount == 1)
         {
             task1Chosen = false;
             task2Chosen = false;
@@ -280,7 +280,7 @@ public class MedicScript : MonoBehaviour
                     //print("Moving along y");
                 }
                 //awaitingSchedule = false;
-            } else if (!(task1Chosen && task2Chosen && task3Chosen) && nodeCount < 21)
+            } else if (!(task1Chosen && task2Chosen && task3Chosen) && nodeCount == 4)
             {
                 awaitingSchedule = true;
             }
@@ -328,7 +328,7 @@ public class MedicScript : MonoBehaviour
             }
 
         }
-        else
+        else //if(!(task1Chosen && task2Chosen && task3Chosen) && nodeCount <= 4)
         {
             awaitingSchedule = true;
         }
