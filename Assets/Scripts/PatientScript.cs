@@ -59,6 +59,17 @@ public class PatientScript : MonoBehaviour
         {
             uIInformation[0].text = Mathf.Floor((time / 60f)) + ":" + Mathf.Floor(time % 60);
         }
+
+        switch(ailment)
+        {
+            case 1: uIInformation[3].text = "Medication A"; break;
+            case 2: uIInformation[3].text = "Medication B"; break;
+            case 3: uIInformation[3].text = "Medication AB"; break;
+            case 4: uIInformation[3].text = "Surgery"; break;
+            case 5: uIInformation[3].text = "Prosthetic"; break;
+            case 0:
+            default: uIInformation[3].text = "CPR"; break;
+        }
             
         //print(inputAsset.FindAction("Point").ReadValue<Vector2>());
         //print(Vector2.Distance(worldPos, rb.transform.position));

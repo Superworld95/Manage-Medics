@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class MainScript : MonoBehaviour
 {
-    public GameObject[] medicStaff = new GameObject[8];
-    public MedicScript medicScript;
-    public int health = 6, score = 0, medicScriptTaskNumber = 0;
+    public GameObject[] medicStaff = new GameObject[8], patientCast = new GameObject[12];
+    public MedicScript medicScript, medicSciptInitial;
+    public PatientScript patientScriptInitial;
+    public int health = 6, score = 0, medicScriptTaskNumber = 0, gameState = 0;
     
     public AudioSource audioSource;
     public AudioClip[] audioClips = new AudioClip[16];
@@ -17,6 +18,9 @@ public class MainScript : MonoBehaviour
     public InputActionAsset inputAsset;
     public int taskChosen = 0, numberLastClicked = 0;
     public TMP_Text scoreNum, hPNum;
+    public float time;
+
+    public TMP_Text[] textBoxes = new TMP_Text[2];
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,6 +32,21 @@ public class MainScript : MonoBehaviour
 
 
         //inputAsset = GetComponent<InputActionAsset>();
+
+        medicStaff[0].SetActive(true);
+        medicStaff[1].SetActive(true);
+        patientCast[0].SetActive(true);
+        patientCast[1].SetActive(true);
+        for (int i = 2; i < 12; i++) {
+            if (i < 8)
+            {
+                medicStaff[i].SetActive(false);
+            }
+            patientCast[i].SetActive(false);
+        }
+        time = Time.deltaTime;
+
+        textBoxes[0].gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -35,12 +54,33 @@ public class MainScript : MonoBehaviour
     {
         scoreNum.text = score+"";
         hPNum.text = health + "";
-    }
 
-    private void FixedUpdate()
-    {
+        switch (time)
+        {
+            case >60 when time<101:
+                patientCast[2].SetActive(true);
+                patientScriptInitial = patientCast[2].GetComponent<PatientScript>();
+                patientScriptInitial.time = 120f;
+                break;
+            case > 200 when time < 201:
+                textBoxes[0].gameObject.SetActive(true);
+                textBoxes[0].text = "You survived! There are no more patients left, so you have reached the end. See your high score. Either close or reset.";
+                Time.timeScale = 0;
+                break;
+
+
+        }
+
+        if (health <= 0)
+        {
+            textBoxes[0].gameObject.SetActive(true);
+            textBoxes[0].text = "GAME OVER. Your HP is depleted. Your clinic has ''gone under'' financially. Either close or reset.";
+            Time.timeScale = 0;
+        }
         if (inputAsset.FindAction("Pause").triggered)
         {
+            Application.Quit();//This will be made into a proper pause menu at some point.
+
             if (Time.timeScale == 0f)
             {
                 Time.timeScale = 1f;
@@ -52,6 +92,18 @@ public class MainScript : MonoBehaviour
                 //pauseMenu.SetActive(true);
             }
         }
+
+        if (inputAsset.FindAction("Reset").triggered)
+        {
+            SceneManager.LoadScene("Level", LoadSceneMode.Single);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        
+
+        
 
         //if (inputAsset.FindAction("Click").triggered) {
         //    print("Player clicked.");

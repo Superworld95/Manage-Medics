@@ -14,7 +14,7 @@ public class MedicScript : MonoBehaviour
     public int medicNumber = 0;
     public int profession = 0; //Matches the possible patient ailments.
     public float durationAmount = 10f;
-    public float duration = 0f;
+    public float duration = 0f, durationC;
     public int[] destinations = new int[3]; //1 to 8.
     public bool task1Chosen = false, task2Chosen = false, task3Chosen = false;
     public int taskToDo = 0;
@@ -43,6 +43,8 @@ public class MedicScript : MonoBehaviour
         uIInformation[4].gameObject.SetActive(false);
         uIInformation[5].gameObject.SetActive(false);
         uIInformation[6].gameObject.SetActive(false);
+
+        //uIInformation[7].gameObject.SetActive(false);
     }
 
     void Update()
@@ -75,7 +77,10 @@ public class MedicScript : MonoBehaviour
 
         }
 
-
+        if (destinations[taskToDo] == 0 && taskToDo < 2 && (task1Chosen && task2Chosen && task3Chosen))
+        {
+            taskToDo++;
+        }
 
         if (taskToDo < 3)
         {
@@ -105,7 +110,7 @@ public class MedicScript : MonoBehaviour
             buttonText[2].text = "?";
         }
 
-        
+
 
 
 
@@ -114,7 +119,7 @@ public class MedicScript : MonoBehaviour
     // Update is called once per frame
     public void FixedUpdate()
     {
-        if (nodeCount > nodes.Length-1)
+        if (nodeCount > nodes.Length - 1)
         {
             nodeCount = 0;
         }
@@ -126,6 +131,7 @@ public class MedicScript : MonoBehaviour
             uIInformation[4].gameObject.SetActive(true);
             uIInformation[5].gameObject.SetActive(true);
             uIInformation[6].gameObject.SetActive(true);
+            //uIInformation[7].gameObject.SetActive(true);
 
             uIInformation[0].gameObject.SetActive(false);
             uIInformation[1].gameObject.SetActive(false);
@@ -199,6 +205,7 @@ public class MedicScript : MonoBehaviour
             //}
 
             uIInformation[6].gameObject.SetActive(false);
+            //uIInformation[7].gameObject.SetActive(false);
 
             uIInformation[0].gameObject.SetActive(true);
             uIInformation[1].gameObject.SetActive(true);
@@ -221,127 +228,141 @@ public class MedicScript : MonoBehaviour
             //Close other information
         }
 
-        
 
 
-        
+
+
         //queueNodeScript = null; queueNodeScript2 = null;
 
         if (!isWorking)
         {
 
-        
 
-        if (nodes[nodeCount].GetComponent<QueueNodeScript>() != null)
-        {
-            queueNodeScript = nodes[nodeCount].GetComponent<QueueNodeScript>();
-        } else
-        {
-            queueNodeScript = null;
-        }
-        if (nodeCount < nodes.Length - 1)
-        {
-            if (nodes[nodeCount + 1].GetComponent<QueueNodeScript>() != null)
+
+            if (nodes[nodeCount].GetComponent<QueueNodeScript>() != null)
             {
-                queueNodeScript2 = nodes[nodeCount + 1].GetComponent<QueueNodeScript>();
+                queueNodeScript = nodes[nodeCount].GetComponent<QueueNodeScript>();
+            } else
+            {
+                queueNodeScript = null;
+            }
+            if (nodeCount < nodes.Length - 1)
+            {
+                if (nodes[nodeCount + 1].GetComponent<QueueNodeScript>() != null)
+                {
+                    queueNodeScript2 = nodes[nodeCount + 1].GetComponent<QueueNodeScript>();
+                }
+                else
+                {
+                    queueNodeScript2 = null;
+                }
             }
             else
             {
                 queueNodeScript2 = null;
             }
-        }
-        else
-        {
-            queueNodeScript2 = null;
-        }
 
-        if (queueNodeScript != null)
-        {
-            if (Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position) >= 0.05f && !queueNodeScript.isOccupied)
+            //print(!awaitingSchedule && (task1Chosen || task2Chosen || task3Chosen));    
+            print(!(task1Chosen || task2Chosen || task3Chosen));
+            print("Task 1 chosen " + task1Chosen);
+            print("Task 2 chosen " + task2Chosen);
+            print("Task 3 chosen " + task3Chosen);
+
+            if (queueNodeScript2 != null)
             {
-                if (rb.transform.position.x > nodes[nodeCount].transform.position.x + 0.5f)
+                if (Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position) >= 0.05f && queueNodeScript2 != null && !queueNodeScript2.isOccupied)//THIS PART IS THE PROBLEM SO FAR.
                 {
-                    rb.transform.position += new Vector3(-travelSpeed, 0f, 0f);
-                    //print("Moving along -x");
+                    if (rb.transform.position.x > nodes[nodeCount].transform.position.x + 0.05f)
+                    {
+                        rb.transform.position += new Vector3(-travelSpeed, 0f, 0f);
+                        //print("Moving along -x");
+                    }
+                    else if (rb.transform.position.x < nodes[nodeCount].transform.position.x - 0.05f)
+                    {
+                        rb.transform.position += new Vector3(travelSpeed, 0f, 0f);
+                        //print("Moving along x");
+                    }
+                    if (rb.transform.position.y > nodes[nodeCount].transform.position.y + 0.05f)
+                    {
+                        rb.transform.position += new Vector3(0f, -travelSpeed, 0f);
+                        //print("Moving along -y");
+                    }
+                    else if (rb.transform.position.y < nodes[nodeCount].transform.position.y - 0.05f)
+                    {
+                        rb.transform.position += new Vector3(0f, travelSpeed, 0f);
+                        //print("Moving along y");
+                    }
+                    //awaitingSchedule = false;
                 }
-                else if (rb.transform.position.x < nodes[nodeCount].transform.position.x - 0.5f)
+                if (!(task1Chosen || task2Chosen || task3Chosen) && nodeCount <= 4)
                 {
-                    rb.transform.position += new Vector3(travelSpeed, 0f, 0f);
-                    //print("Moving along x");
+                    print("This is activating?");
+                    //print(!awaitingSchedule && !(task1Chosen || task2Chosen || task3Chosen));
+                    //print(!awaitingSchedule);
+                    print((task1Chosen || task2Chosen || task3Chosen));
+                    print("Task 1 chosen2 " + task1Chosen);
+                    print("Task 2 chosen2 " + task2Chosen);
+                    print("Task 3 chosen2 " + task3Chosen);
+                    awaitingSchedule = true;
                 }
-                if (rb.transform.position.y > nodes[nodeCount].transform.position.y + 0.5f)
+
+                if (Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position) <= 0.5f)
                 {
-                    rb.transform.position += new Vector3(0f, -travelSpeed, 0f);
-                    //print("Moving along -y");
+                    nodeCount++;
                 }
-                else if (rb.transform.position.y < nodes[nodeCount].transform.position.y - 0.5f)
-                {
-                    rb.transform.position += new Vector3(0f, travelSpeed, 0f);
-                    //print("Moving along y");
-                }
-                //awaitingSchedule = false;
-            } else if (!(task1Chosen && task2Chosen && task3Chosen) && nodeCount == 4)
+
+                //if (queueNodeScript != null)
+                //{
+                //    if (!queueNodeScript2.isOccupied && !queueNodeScript.isOccupied && Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position) <= 0.05f)
+                //    {
+                //        nodeCount++;
+                //    }
+                //}
+            }
+            else if (!awaitingSchedule && (task1Chosen || task2Chosen || task3Chosen))
             {
-                awaitingSchedule = true;
+                if (Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position) >= 0.05f)
+                {
+                    print("Once all (or some) tasks are chosen, this should execute.");
+
+                    if (rb.transform.position.x > nodes[nodeCount].transform.position.x + 0.05f)
+                    {
+                        rb.transform.position += new Vector3(-travelSpeed, 0f, 0f);
+                        //print("Moving along -x");
+                    }
+                    else if (rb.transform.position.x < nodes[nodeCount].transform.position.x - 0.05f)
+                    {
+                        rb.transform.position += new Vector3(travelSpeed, 0f, 0f);
+                        //print("Moving along x");
+                    }
+                    if (rb.transform.position.y > nodes[nodeCount].transform.position.y + 0.05f)
+                    {
+                        rb.transform.position += new Vector3(0f, -travelSpeed, 0f);
+                        //print("Moving along -y");
+                    }
+                    else if (rb.transform.position.y < nodes[nodeCount].transform.position.y - 0.05f)
+                    {
+                        rb.transform.position += new Vector3(0f, travelSpeed, 0f);
+                        //print("Moving along y");
+                    }
+                    //awaitingSchedule = false;
+                }
+
+            }
+            else //if(!(task1Chosen && task2Chosen && task3Chosen) && nodeCount <= 4)
+            {
+                //awaitingSchedule = true;
             }
 
-            if (Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position) <= 0.05f)
-            {
-                nodeCount++;
-            }
 
-            //if (queueNodeScript != null)
+            //switch (Random.Range(0, 8))
             //{
-            //    if (!queueNodeScript2.isOccupied && !queueNodeScript.isOccupied && Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position) <= 0.05f)
-            //    {
-            //        nodeCount++;
-            //    }
+            //    case 0: doingWrongOperation = true;
+            //        break;
+            //        default: break;
             //}
-        }
-        else if (!awaitingSchedule && task1Chosen && task2Chosen && task3Chosen)
-        {
-            if (Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position) >= 0.05f)
-            {
-                print("Once all tasks are chosen, this should execute.");
-
-                if (rb.transform.position.x > nodes[nodeCount].transform.position.x + 0.5f)
-                {
-                    rb.transform.position += new Vector3(-travelSpeed, 0f, 0f);
-                    //print("Moving along -x");
-                }
-                else if (rb.transform.position.x < nodes[nodeCount].transform.position.x - 0.5f)
-                {
-                    rb.transform.position += new Vector3(travelSpeed, 0f, 0f);
-                    //print("Moving along x");
-                }
-                if (rb.transform.position.y > nodes[nodeCount].transform.position.y + 0.5f)
-                {
-                    rb.transform.position += new Vector3(0f, -travelSpeed, 0f);
-                    //print("Moving along -y");
-                }
-                else if (rb.transform.position.y < nodes[nodeCount].transform.position.y - 0.5f)
-                {
-                    rb.transform.position += new Vector3(0f, travelSpeed, 0f);
-                    //print("Moving along y");
-                }
-                //awaitingSchedule = false;
-            }
-
-        }
-        else //if(!(task1Chosen && task2Chosen && task3Chosen) && nodeCount <= 4)
-        {
-            awaitingSchedule = true;
-        }
 
 
-        //switch (Random.Range(0, 8))
-        //{
-        //    case 0: doingWrongOperation = true;
-        //        break;
-        //        default: break;
-        //}
-
-        
         }
         if (patientScript != null)
         {
@@ -350,7 +371,7 @@ public class MedicScript : MonoBehaviour
                 //print("Duration: " + duration+" patientTime: "+ patientScript.time);
                 isWorking = false;
                 nodeCount++;
-                
+
                 taskToDo++;
                 patientScript.gameObject.SetActive(false);
                 patientScript = null;
@@ -364,7 +385,11 @@ public class MedicScript : MonoBehaviour
                     mainScript.health--;
                 }
 
-                duration = 10f; //CHANGE THIS TO CALL THE DURATION.
+                if (durationC > 0)
+                {
+                    durationC -= 10;
+                }
+                duration = durationC; //CHANGE THIS TO CALL THE DURATION.
             }
         }
         if (isWorking && duration <= 0f)
@@ -396,9 +421,9 @@ public class MedicScript : MonoBehaviour
                 uIInformation[0].text = Mathf.Floor((duration / 60f)) + ":" + Mathf.Floor(duration % 60);
             }
         }
-            
-        
-    
+
+
+
     }
 
     public void OnMouseUpMethod()
@@ -419,8 +444,13 @@ public class MedicScript : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Patient" && Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position) <= 1f && taskToDo<3)
+        if (collision.gameObject.tag == "Node" && Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position) <= 0.75f)
         {
+            nodeCount++;
+        }
+        if (collision.gameObject.tag == "Patient" && Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position) <= 0.75f && taskToDo < 2)
+        {
+            print(Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position));
             isWorking = true;
             patientScript = collision.gameObject.GetComponent<PatientScript>();
             print("Medic is working!");
@@ -430,11 +460,8 @@ public class MedicScript : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+
         
-        if (collision.gameObject.tag == "Node" && Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position) <= 1f)
-        {
-            nodeCount++;
-        }
     }
 
     public void Button1Pressed()
@@ -455,5 +482,15 @@ public class MedicScript : MonoBehaviour
         mainScript.taskChosen = 3;
         mainScript.medicScript = this.GetComponent<MedicScript>();
         mainScript.medicScriptTaskNumber = 3;
+    }
+
+    public void ButtonDonePressed()
+    {
+        if (task1Chosen || task2Chosen || task3Chosen)
+        {
+            task1Chosen = true;
+            task2Chosen = true;
+            task3Chosen = true;
+        }
     }
 }
