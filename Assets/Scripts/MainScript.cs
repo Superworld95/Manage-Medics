@@ -44,25 +44,28 @@ public class MainScript : MonoBehaviour
             }
             patientCast[i].SetActive(false);
         }
-        time = Time.deltaTime;
+        
 
         textBoxes[0].gameObject.SetActive(false);
+        health = 2;
     }
 
     // Update is called once per frame
     void Update()
     {
+        time += Time.deltaTime;
         scoreNum.text = score+"";
         hPNum.text = health + "";
 
+        print("Time: " + time);
         switch (time)
         {
-            case >60 when time<101:
+            case >20 when time<21:
                 patientCast[2].SetActive(true);
                 patientScriptInitial = patientCast[2].GetComponent<PatientScript>();
-                patientScriptInitial.time = 120f;
+                patientScriptInitial.time = 90f;
                 break;
-            case > 200 when time < 201:
+            case >50 when time < 51:
                 textBoxes[0].gameObject.SetActive(true);
                 textBoxes[0].text = "You survived! There are no more patients left, so you have reached the end. See your high score. Either close or reset.";
                 Time.timeScale = 0;
@@ -131,10 +134,10 @@ public class MainScript : MonoBehaviour
                     case 1:
                     medicScript.task1Chosen = true;
                     medicScript.buttonText[0].text = numberLastClicked+"";
-                    medicScript.duration = 60f;
+                    medicScript.duration = 40f;
                     break;
-                case 2: medicScript.task2Chosen = true; medicScript.buttonText[1].text = numberLastClicked + ""; medicScript.duration = 50f; break;                    
-                case 3: medicScript.task3Chosen = true; medicScript.buttonText[2].text = numberLastClicked + ""; medicScript.duration = 30f; break;                    
+                case 2: medicScript.task2Chosen = true; medicScript.buttonText[1].text = numberLastClicked + ""; medicScript.duration = 30f; break;                    
+                case 3: medicScript.task3Chosen = true; medicScript.buttonText[2].text = numberLastClicked + ""; medicScript.duration = 10f; break;                    
             }
             taskChosen = 0;
             numberLastClicked = 0;

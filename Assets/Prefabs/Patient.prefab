@@ -183,7 +183,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   patientNumber: 0
   scoreValue: 10
-  time: 120
+  time: 80
   ailment: 0
   uIInformation:
   - {fileID: 7112813339293867437}
