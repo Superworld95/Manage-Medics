@@ -13,7 +13,8 @@ public class MainScript : MonoBehaviour
     
     public AudioSource audioSource;
     public AudioClip[] audioClips = new AudioClip[16];
-    public int medicineSuppliesA = 0;
+    public int[] medicalSupplies = new int[8];
+    //public int medicineSuppliesA = 0;
 
     public InputActionAsset inputAsset;
     public int taskChosen = 0, numberLastClicked = 0;
@@ -47,7 +48,14 @@ public class MainScript : MonoBehaviour
         
 
         textBoxes[0].gameObject.SetActive(false);
-        health = 2;
+        health = 6;
+
+        textBoxes[2].gameObject.SetActive(false);
+        textBoxes[3].gameObject.SetActive(false);
+        textBoxes[4].gameObject.SetActive(false);
+        textBoxes[5].gameObject.SetActive(false);
+        textBoxes[10].gameObject.SetActive(false);
+        textBoxes[11].gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -57,20 +65,83 @@ public class MainScript : MonoBehaviour
         scoreNum.text = score+"";
         hPNum.text = health + "";
 
-        print("Time: " + time);
+        //print("Time: " + time);
         switch (time)
         {
             case >20 when time<21:
                 patientCast[2].SetActive(true);
                 patientScriptInitial = patientCast[2].GetComponent<PatientScript>();
+                patientScriptInitial.ailment = 0;
                 patientScriptInitial.time = 90f;
                 break;
-            case >50 when time < 51:
+            case >30 when time < 31:
+                patientCast[3].SetActive(true);
+                patientScriptInitial = patientCast[3].GetComponent<PatientScript>();
+                patientScriptInitial.ailment = 0;
+                patientScriptInitial.time = 90f;
+                break;
+            case > 50 when time < 51:
+                patientCast[4].SetActive(true);
+                patientScriptInitial = patientCast[4].GetComponent<PatientScript>();
+                patientScriptInitial.ailment = 0;
+                patientScriptInitial.time = 90f;
+                break;
+            case > 70 when time < 71:
+                patientCast[5].SetActive(true);
+                patientScriptInitial = patientCast[5].GetComponent<PatientScript>();
+                patientScriptInitial.ailment = 0;
+                patientScriptInitial.time = 90f;
+
+                patientCast[6].SetActive(true);
+                patientScriptInitial = patientCast[6].GetComponent<PatientScript>();
+                patientScriptInitial.ailment = 1;
+                patientScriptInitial.time = 90f;
+
+                textBoxes[2].gameObject.SetActive(true);
+                textBoxes[10].gameObject.SetActive(true);
+                break;
+            case > 80 when time < 81:
+                medicStaff[2].SetActive(true);
+                medicSciptInitial = medicStaff[2].GetComponent<MedicScript>();
+                medicSciptInitial.profession = 1;
+                break;
+            case > 90 when time < 91:
+                patientCast[0].SetActive(true);
+                patientScriptInitial = patientCast[8].GetComponent<PatientScript>();
+                patientScriptInitial.ailment = 0;
+                patientScriptInitial.time = 90f;
+                break;
+            case > 100 when time < 101:
+                patientCast[0].SetActive(true);
+                patientScriptInitial = patientCast[0].GetComponent<PatientScript>();
+                patientScriptInitial.ailment = 0;
+                patientScriptInitial.time = 90f;
+                patientCast[1].SetActive(true);
+                patientScriptInitial = patientCast[1].GetComponent<PatientScript>();
+                patientScriptInitial.ailment = 0;
+                patientScriptInitial.time = 90f;
+                break;
+            case > 120 when time < 121:
+                patientCast[9].SetActive(true);
+                patientScriptInitial = patientCast[9].GetComponent<PatientScript>();
+                patientScriptInitial.ailment = 1;
+                patientScriptInitial.time = 90f;
+                patientCast[10].SetActive(true);
+                patientScriptInitial = patientCast[10].GetComponent<PatientScript>();
+                patientScriptInitial.ailment = 1;
+                patientScriptInitial.time = 90f;
+                patientCast[11].SetActive(true);
+                patientScriptInitial = patientCast[11].GetComponent<PatientScript>();
+                patientScriptInitial.ailment = 1;
+                patientScriptInitial.time = 90f;
+                break;
+
+            case > 300 when time < 301:
                 textBoxes[0].gameObject.SetActive(true);
                 textBoxes[0].text = "You survived! There are no more patients left, so you have reached the end. See your high score. Either close or reset.";
                 Time.timeScale = 0;
                 break;
-
+                //The UI for different supplies appears at some point.
 
         }
 
@@ -100,6 +171,13 @@ public class MainScript : MonoBehaviour
         {
             SceneManager.LoadScene("Level", LoadSceneMode.Single);
         }
+
+        //medical supplies displayed
+        textBoxes[6].text = medicalSupplies[0] + "";
+        textBoxes[7].text = medicalSupplies[1] + "";
+        textBoxes[8].text = medicalSupplies[2] + "";
+        textBoxes[9].text = medicalSupplies[3] + "";
+
     }
 
     private void FixedUpdate()
@@ -125,20 +203,57 @@ public class MainScript : MonoBehaviour
         //    print("Number Chosen: " + numberLastClicked);
         //}
 
-        if (taskChosen != 0 && numberLastClicked != 0)
+        if (taskChosen > 0 && numberLastClicked > 0)
         {
+            
             medicScript.destinations[medicScriptTaskNumber-1] = numberLastClicked;
             switch (taskChosen)
             {
                 case 0: break;
                     case 1:
-                    medicScript.task1Chosen = true;
-                    medicScript.buttonText[0].text = numberLastClicked+"";
-                    medicScript.duration = 40f;
+                    if (!patientCast[numberLastClicked].GetComponent<PatientScript>().selectedAlready)
+                    //if (!medicScript.destinations[medicScriptTaskNumber - 1].patientScript.selectedAlready)
+                    {
+                        patientCast[numberLastClicked].GetComponent<PatientScript>().selectedAlready = true;
+                        medicScript.task1Chosen = true;
+                        medicScript.buttonText[0].text = numberLastClicked + "";
+                        medicScript.durationC = 40f;
+                        textBoxes[1].gameObject.SetActive(false);
+                    } else
+                    {
+                        print("This one's already selected! 1/3");
+                        textBoxes[1].gameObject.SetActive(true);
+                    }
+                                           
                     break;
-                case 2: medicScript.task2Chosen = true; medicScript.buttonText[1].text = numberLastClicked + ""; medicScript.duration = 30f; break;                    
-                case 3: medicScript.task3Chosen = true; medicScript.buttonText[2].text = numberLastClicked + ""; medicScript.duration = 10f; break;                    
+                case 2:
+                    if (!patientCast[numberLastClicked].GetComponent<PatientScript>().selectedAlready)
+                    {
+                        patientCast[numberLastClicked].GetComponent<PatientScript>().selectedAlready = true;
+                        medicScript.task2Chosen = true;
+                        medicScript.buttonText[1].text = numberLastClicked + "";
+                        medicScript.durationC = 30f; 
+                    }
+                    else
+                    {
+                        print("This one's already selected! 2/3");
+                    }
+                    break;
+                case 3:
+                    if (!patientCast[numberLastClicked].GetComponent<PatientScript>().selectedAlready)
+                    {
+                        patientCast[numberLastClicked].GetComponent<PatientScript>().selectedAlready = true;
+                        medicScript.task3Chosen = true;
+                        medicScript.buttonText[2].text = numberLastClicked + "";
+                        medicScript.durationC = 10f;
+                    }
+                    else
+                    {
+                        print("This one's already selected! 3/3");
+                    }
+                    break;                    
             }
+            medicScript.duration = medicScript.durationC;
             taskChosen = 0;
             numberLastClicked = 0;
         }

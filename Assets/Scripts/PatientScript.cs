@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -17,6 +18,8 @@ public class PatientScript : MonoBehaviour
 
     //public Vector2 screenPos;
     public Vector2 worldPos;
+    public bool isSupplyBox = false;
+    public bool selectedAlready = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -62,13 +65,13 @@ public class PatientScript : MonoBehaviour
 
         switch(ailment)
         {
-            case 1: uIInformation[3].text = "Medication A"; break;
-            case 2: uIInformation[3].text = "Medication B"; break;
-            case 3: uIInformation[3].text = "Medication AB"; break;
-            case 4: uIInformation[3].text = "Surgery"; break;
-            case 5: uIInformation[3].text = "Prosthetic"; break;
+            case 1: uIInformation[1].text = "Medication A"; break;
+            case 2: uIInformation[1].text = "Medication B"; break;
+            case 3: uIInformation[1].text = "Medication AB"; break;
+            case 4: uIInformation[1].text = "Surgery"; break;
+            case 5: uIInformation[1].text = "Prosthetic"; break;
             case 0:
-            default: uIInformation[3].text = "CPR"; break;
+            default: uIInformation[1].text = "CPR"; break;
         }
             
         //print(inputAsset.FindAction("Point").ReadValue<Vector2>());
@@ -99,8 +102,17 @@ public class PatientScript : MonoBehaviour
     {
         if (mainScript != null)
         {
-            mainScript.numberLastClicked = patientNumber;
+            if (isSupplyBox && (mainScript.medicalSupplies[ailment] <= 0)) {
+                //Not enough supplies.
+                mainScript.textBoxes[11].gameObject.SetActive(true);
+            } else
+            {
+                mainScript.numberLastClicked = patientNumber;
+                mainScript.textBoxes[11].gameObject.SetActive(false);
+            }
+                
         }
+        //mainScript.numberLastClicked = patientNumber;
     }
     public void OnMouseOverMethod()
     {
