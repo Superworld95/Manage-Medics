@@ -9849,6 +9849,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1387188320}
     - target: {fileID: 5182226401932603654, guid: 8f1d1f1a2ee80f04c8ddcdc700361d08, type: 3}
+      propertyPath: 'audioClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 0e30f756accdf2b4ca687f139741ecec, type: 3}
+    - target: {fileID: 5182226401932603654, guid: 8f1d1f1a2ee80f04c8ddcdc700361d08, type: 3}
+      propertyPath: 'audioClips.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 63277ac6b5115444dad8794208ef79a1, type: 3}
+    - target: {fileID: 5182226401932603654, guid: 8f1d1f1a2ee80f04c8ddcdc700361d08, type: 3}
+      propertyPath: 'audioClips.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: a0448db3156204a4c91af72b8ea34fb0, type: 3}
+    - target: {fileID: 5182226401932603654, guid: 8f1d1f1a2ee80f04c8ddcdc700361d08, type: 3}
+      propertyPath: 'audioClips.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: d76c591233cad1b41a75874520f73920, type: 3}
+    - target: {fileID: 5182226401932603654, guid: 8f1d1f1a2ee80f04c8ddcdc700361d08, type: 3}
+      propertyPath: 'audioClips.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: a587b79e47a858a45b282d4eb6b936b9, type: 3}
+    - target: {fileID: 5182226401932603654, guid: 8f1d1f1a2ee80f04c8ddcdc700361d08, type: 3}
       propertyPath: 'medicStaff.Array.data[0]'
       value: 
       objectReference: {fileID: 290090697}
