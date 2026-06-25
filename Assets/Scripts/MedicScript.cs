@@ -312,10 +312,10 @@ public class MedicScript : MonoBehaviour
             }
 
             //print(!awaitingSchedule && (task1Chosen || task2Chosen || task3Chosen));    
-            print(!(task1Chosen || task2Chosen || task3Chosen));
-            print("Task 1 chosen " + task1Chosen);
-            print("Task 2 chosen " + task2Chosen);
-            print("Task 3 chosen " + task3Chosen);
+            //print(!(task1Chosen || task2Chosen || task3Chosen));
+            //print("Task 1 chosen " + task1Chosen);
+            //print("Task 2 chosen " + task2Chosen);
+            //print("Task 3 chosen " + task3Chosen);
 
             if (queueNodeScript2 != null)
             {
@@ -345,13 +345,13 @@ public class MedicScript : MonoBehaviour
                 }
                 if (!(task1Chosen || task2Chosen || task3Chosen) && nodeCount <= 4)
                 {
-                    print("This is activating?");
+                    //print("This is activating?");
                     //print(!awaitingSchedule && !(task1Chosen || task2Chosen || task3Chosen));
                     //print(!awaitingSchedule);
-                    print((task1Chosen || task2Chosen || task3Chosen));
-                    print("Task 1 chosen2 " + task1Chosen);
-                    print("Task 2 chosen2 " + task2Chosen);
-                    print("Task 3 chosen2 " + task3Chosen);
+                    //print((task1Chosen || task2Chosen || task3Chosen));
+                    //print("Task 1 chosen2 " + task1Chosen);
+                    //print("Task 2 chosen2 " + task2Chosen);
+                    //print("Task 3 chosen2 " + task3Chosen);
                     awaitingSchedule = true;
                 }
 
@@ -430,6 +430,7 @@ public class MedicScript : MonoBehaviour
                     {
                         mainScript.score -= 10;
                         mainScript.health--;
+                        mainScript.PlaySoundEffect(3);
                     }
                     else
                     {
@@ -441,6 +442,7 @@ public class MedicScript : MonoBehaviour
                         else
                         {
                             mainScript.score += 10;
+                            mainScript.PlaySoundEffect(4);
                         }
                     }
                     patientScript.selectedAlready = false;
@@ -475,6 +477,20 @@ public class MedicScript : MonoBehaviour
         //uIInformation[4].text = duration + " seconds";//Format this into mins.
         if (isWorking)
         {
+            print("duration: " + duration + ", duration rounded down mod 10: " + Mathf.Floor(duration) % 10);
+
+            if (Mathf.Floor(duration) % 10 == 0)
+            {
+                print("Sound should be playing");
+                switch (patientScript.ailment)
+                {
+                    case 0: mainScript.PlaySoundEffect(0); break;
+                    case 1: case 2: case 3: mainScript.PlaySoundEffect(1); break;
+                    case 4: mainScript.PlaySoundEffect(2); break;
+                }
+            }
+            
+
             if (Mathf.Floor(duration % 60) < 10)
             {
                 uIInformation[0].text = Mathf.Floor((duration / 60f)) + ":0" + Mathf.Floor(duration % 60);
@@ -512,7 +528,7 @@ public class MedicScript : MonoBehaviour
             nodeCount++;
         }
 
-        print("The position of the destination node is: "+nodes[destinations[taskToDo] + 7].transform.position);//This doesn't work since the queue is not linear.
+        //print("The position of the destination node is: "+nodes[destinations[taskToDo] + 7].transform.position);//This doesn't work since the queue is not linear.
 
         if (collision.gameObject.tag == "Patient" && taskToDo < 2)//This code is wrong. It shouldn't be searching for nodes[nodeCount] at all.
         {

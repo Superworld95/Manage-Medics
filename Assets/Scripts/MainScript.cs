@@ -69,73 +69,47 @@ public class MainScript : MonoBehaviour
         switch (time)
         {
             case >20 when time<21:
-                patientCast[2].SetActive(true);
-                patientScriptInitial = patientCast[2].GetComponent<PatientScript>();
-                patientScriptInitial.ailment = 0;
-                patientScriptInitial.time = 90f;
+                SetPatient(2, 0, 90f, false);
                 break;
             case >30 when time < 31:
-                patientCast[3].SetActive(true);
-                patientScriptInitial = patientCast[3].GetComponent<PatientScript>();
-                patientScriptInitial.ailment = 0;
-                patientScriptInitial.time = 90f;
+                SetPatient(3, 0, 90f, false);
                 break;
             case > 50 when time < 51:
-                patientCast[4].SetActive(true);
-                patientScriptInitial = patientCast[4].GetComponent<PatientScript>();
-                patientScriptInitial.ailment = 0;
-                patientScriptInitial.time = 90f;
+                SetPatient(4, 0, 90f, false);
                 break;
             case > 70 when time < 71:
-                patientCast[5].SetActive(true);
-                patientScriptInitial = patientCast[5].GetComponent<PatientScript>();
-                patientScriptInitial.ailment = 0;
-                patientScriptInitial.time = 90f;
-
-                patientCast[6].SetActive(true);
-                patientScriptInitial = patientCast[6].GetComponent<PatientScript>();
-                patientScriptInitial.ailment = 1;
-                patientScriptInitial.time = 90f;
+                SetPatient(5, 0, 90f, false);
+                SetPatient(6, 1, 90f, true);
 
                 textBoxes[2].gameObject.SetActive(true);
                 textBoxes[10].gameObject.SetActive(true);
                 break;
             case > 80 when time < 81:
-                medicStaff[2].SetActive(true);
-                medicSciptInitial = medicStaff[2].GetComponent<MedicScript>();
-                medicSciptInitial.profession = 1;
+                SetMedic(2, 1);
                 break;
             case > 90 when time < 91:
-                patientCast[0].SetActive(true);
-                patientScriptInitial = patientCast[8].GetComponent<PatientScript>();
-                patientScriptInitial.ailment = 0;
-                patientScriptInitial.time = 90f;
+                SetPatient(0, 0, 90f, true);
                 break;
             case > 100 when time < 101:
-                patientCast[0].SetActive(true);
-                patientScriptInitial = patientCast[0].GetComponent<PatientScript>();
-                patientScriptInitial.ailment = 0;
-                patientScriptInitial.time = 90f;
-                patientCast[1].SetActive(true);
-                patientScriptInitial = patientCast[1].GetComponent<PatientScript>();
-                patientScriptInitial.ailment = 0;
-                patientScriptInitial.time = 90f;
+                SetPatient(1, 0, 90f, false);
+                SetPatient(2, 1, 90f, true);
                 break;
             case > 120 when time < 121:
+                SetPatient(9, 1, 90f, true);
+                SetPatient(10, 1, 90f, true);
+                SetPatient(11, 1, 90f, false);
                 patientCast[9].SetActive(true);
-                patientScriptInitial = patientCast[9].GetComponent<PatientScript>();
-                patientScriptInitial.ailment = 1;
-                patientScriptInitial.time = 90f;
-                patientCast[10].SetActive(true);
-                patientScriptInitial = patientCast[10].GetComponent<PatientScript>();
-                patientScriptInitial.ailment = 1;
-                patientScriptInitial.time = 90f;
-                patientCast[11].SetActive(true);
-                patientScriptInitial = patientCast[11].GetComponent<PatientScript>();
-                patientScriptInitial.ailment = 1;
-                patientScriptInitial.time = 90f;
                 break;
-
+            case > 130 when time < 131:
+                SetPatient(3, 0, 90f, false);
+                SetPatient(4, 0, 90f, false);
+                break;
+            case > 150 when time < 151:
+                SetPatient(5, 0, 90f, false);
+                SetPatient(6, 0, 90f, false);
+                SetPatient(7, 1, 90f, true);
+                SetPatient(8, 0, 90f, false);
+                break;
             case > 300 when time < 301:
                 textBoxes[0].gameObject.SetActive(true);
                 textBoxes[0].text = "You survived! There are no more patients left, so you have reached the end. See your high score. Either close or reset.";
@@ -269,6 +243,27 @@ public class MainScript : MonoBehaviour
 
     public void PlaySoundEffect(int num)
     {
-        audioSource.PlayOneShot(audioClips[num]);
+        print("Play sound " + num);
+
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(audioClips[num]);
+        }
+    }
+
+    public void SetPatient(int num, int ailment, float time, bool isSupplyBox)
+    {
+        patientCast[num].SetActive(true);
+        patientScriptInitial = patientCast[num].GetComponent<PatientScript>();
+        patientScriptInitial.ailment = ailment;
+        patientScriptInitial.time = time;
+        patientScriptInitial.isSupplyBox = isSupplyBox;
+    }
+
+    public void SetMedic(int num, int profession)
+    {
+        medicStaff[num].SetActive(true);
+        medicSciptInitial = medicStaff[num].GetComponent<MedicScript>();
+        medicSciptInitial.profession = profession;
     }
 }

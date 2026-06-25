@@ -92,6 +92,13 @@ public class PatientScript : MonoBehaviour
                 OnMouseExitMethod();
             }
         }
+        if (isSupplyBox)
+        {
+            rb.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+        } else
+        {
+            rb.gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+        }
     }
     void FixedUpdate()
     {
