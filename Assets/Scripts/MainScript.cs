@@ -98,7 +98,6 @@ public class MainScript : MonoBehaviour
                 SetPatient(9, 1, 90f, true);
                 SetPatient(10, 1, 90f, true);
                 SetPatient(11, 1, 90f, false);
-                patientCast[9].SetActive(true);
                 break;
             case > 130 when time < 131:
                 SetPatient(3, 0, 90f, false);
@@ -109,6 +108,12 @@ public class MainScript : MonoBehaviour
                 SetPatient(6, 0, 90f, false);
                 SetPatient(7, 1, 90f, true);
                 SetPatient(8, 0, 90f, false);
+                break;
+            case > 160 when time < 161:
+                SetPatient(9, 0, 90f, false);
+                SetPatient(10, 1, 90f, false);
+                SetPatient(11, 0, 90f, false);
+                SetPatient(11, 1, 90f, true);
                 break;
             case > 300 when time < 301:
                 textBoxes[0].gameObject.SetActive(true);
