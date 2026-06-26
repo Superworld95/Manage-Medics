@@ -8474,7 +8474,7 @@ PrefabInstance:
       objectReference: {fileID: 1747689650}
     - target: {fileID: 3465621194020819998, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: patientNumber
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5277732924074474409, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: m_LocalPosition.x

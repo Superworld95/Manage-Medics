@@ -112,7 +112,8 @@ public class MedicScript : MonoBehaviour
                 case 4:
                     switch (nodeCount)
                     {
-                        case 6: nodeCount = 8; break;
+                        case 7: nodeCount = 9; break;
+                            
                     }
                     break;
                 //case 3:
@@ -149,6 +150,15 @@ public class MedicScript : MonoBehaviour
                         case 12: nodeCount = 15; break;
                     }
                     break;
+                case 11:
+                case 12:
+                    switch (nodeCount)
+                    {
+                        case 7: nodeCount = 12; break;
+                        case 12: nodeCount = 17; break;
+                    }
+                    break;
+
             }
         }
         else if ((taskToDo == 2 && destinations[taskToDo] == 0) || taskToDo >= 3)

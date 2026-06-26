@@ -68,6 +68,21 @@ public class MainScript : MonoBehaviour
         //print("Time: " + time);
         switch (time)
         {
+            case > 1 when time < 2: //THIS WILL BE REMOVED.
+                SetPatient(0, 0, 900f, false);
+                SetPatient(1, 0, 900f, false);
+                SetPatient(2, 0, 900f, false);
+                SetPatient(3, 0, 900f, false);
+                SetPatient(4, 0, 900f, false);
+                SetPatient(5, 0, 900f, false);
+                SetPatient(6, 0, 900f, false);
+                SetPatient(7, 0, 900f, false);
+                SetPatient(8, 0, 900f, false);
+                SetPatient(9, 0, 900f, false);
+                SetPatient(10, 0, 900f, false);
+                SetPatient(11, 0, 900f, false);
+                break;
+                /*RESTORE THIS LATER
             case >20 when time<21:
                 SetPatient(2, 0, 90f, false);
                 break;
@@ -120,6 +135,7 @@ public class MainScript : MonoBehaviour
                 textBoxes[0].text = "You survived! There are no more patients left, so you have reached the end. See your high score. Either close or reset.";
                 Time.timeScale = 0;
                 break;
+                */
                 //The UI for different supplies appears at some point.
 
         }
@@ -190,10 +206,10 @@ public class MainScript : MonoBehaviour
             {
                 case 0: break;
                     case 1:
-                    if (!patientCast[numberLastClicked].GetComponent<PatientScript>().selectedAlready)
+                    if (!patientCast[numberLastClicked-1].GetComponent<PatientScript>().selectedAlready)
                     //if (!medicScript.destinations[medicScriptTaskNumber - 1].patientScript.selectedAlready)
                     {
-                        patientCast[numberLastClicked].GetComponent<PatientScript>().selectedAlready = true;
+                        patientCast[numberLastClicked-1].GetComponent<PatientScript>().selectedAlready = true;
                         medicScript.task1Chosen = true;
                         medicScript.buttonText[0].text = numberLastClicked + "";
                         medicScript.durationC = 40f;
@@ -211,11 +227,13 @@ public class MainScript : MonoBehaviour
                         patientCast[numberLastClicked].GetComponent<PatientScript>().selectedAlready = true;
                         medicScript.task2Chosen = true;
                         medicScript.buttonText[1].text = numberLastClicked + "";
-                        medicScript.durationC = 30f; 
+                        medicScript.durationC = 30f;
+                        textBoxes[1].gameObject.SetActive(false);
                     }
                     else
                     {
                         print("This one's already selected! 2/3");
+                        textBoxes[1].gameObject.SetActive(true);
                     }
                     break;
                 case 3:
@@ -225,10 +243,12 @@ public class MainScript : MonoBehaviour
                         medicScript.task3Chosen = true;
                         medicScript.buttonText[2].text = numberLastClicked + "";
                         medicScript.durationC = 10f;
+                        textBoxes[1].gameObject.SetActive(false);
                     }
                     else
                     {
                         print("This one's already selected! 3/3");
+                        textBoxes[1].gameObject.SetActive(true);
                     }
                     break;                    
             }
