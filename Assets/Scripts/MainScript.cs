@@ -109,7 +109,7 @@ public class MainScript : MonoBehaviour
                 SetPatient(7, 1, 90f, true);
                 SetPatient(8, 0, 90f, false);
                 break;
-            case > 160 when time < 161:
+            case > 170 when time < 171:
                 SetPatient(9, 0, 90f, false);
                 SetPatient(10, 1, 90f, false);
                 SetPatient(11, 0, 90f, false);
@@ -152,10 +152,10 @@ public class MainScript : MonoBehaviour
         }
 
         //medical supplies displayed
-        textBoxes[6].text = medicalSupplies[0] + "";
-        textBoxes[7].text = medicalSupplies[1] + "";
-        textBoxes[8].text = medicalSupplies[2] + "";
-        textBoxes[9].text = medicalSupplies[3] + "";
+        textBoxes[6].text = medicalSupplies[1] + "";
+        textBoxes[7].text = medicalSupplies[2] + "";
+        textBoxes[8].text = medicalSupplies[3] + "";
+        textBoxes[9].text = medicalSupplies[4] + "";
 
     }
 
@@ -168,10 +168,10 @@ public class MainScript : MonoBehaviour
         //if (inputAsset.FindAction("Click").triggered) {
         //    print("Player clicked.");
         //}
-        if (medicScript != null)
-        {
+        //if (medicScript != null)
+        //{
 
-        }
+        //}
 
         //if (taskChosen != 0)
         //{

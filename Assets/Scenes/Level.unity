@@ -10036,6 +10036,38 @@ PrefabInstance:
       propertyPath: 'patientCast.Array.data[23]'
       value: 
       objectReference: {fileID: 1833517248}
+    - target: {fileID: 5182226401932603654, guid: 8f1d1f1a2ee80f04c8ddcdc700361d08, type: 3}
+      propertyPath: 'medicalSupplies.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182226401932603654, guid: 8f1d1f1a2ee80f04c8ddcdc700361d08, type: 3}
+      propertyPath: 'medicalSupplies.Array.data[1]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182226401932603654, guid: 8f1d1f1a2ee80f04c8ddcdc700361d08, type: 3}
+      propertyPath: 'medicalSupplies.Array.data[2]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182226401932603654, guid: 8f1d1f1a2ee80f04c8ddcdc700361d08, type: 3}
+      propertyPath: 'medicalSupplies.Array.data[3]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182226401932603654, guid: 8f1d1f1a2ee80f04c8ddcdc700361d08, type: 3}
+      propertyPath: 'medicalSupplies.Array.data[4]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182226401932603654, guid: 8f1d1f1a2ee80f04c8ddcdc700361d08, type: 3}
+      propertyPath: 'medicalSupplies.Array.data[5]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182226401932603654, guid: 8f1d1f1a2ee80f04c8ddcdc700361d08, type: 3}
+      propertyPath: 'medicalSupplies.Array.data[6]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182226401932603654, guid: 8f1d1f1a2ee80f04c8ddcdc700361d08, type: 3}
+      propertyPath: 'medicalSupplies.Array.data[7]'
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7504174376267353466, guid: 8f1d1f1a2ee80f04c8ddcdc700361d08, type: 3}
     m_RemovedGameObjects: []

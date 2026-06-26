@@ -109,11 +109,15 @@ public class PatientScript : MonoBehaviour
     {
         if (mainScript != null)
         {
-            if (isSupplyBox && (mainScript.medicalSupplies[ailment] <= 0)) {
+            if (!isSupplyBox && (mainScript.medicalSupplies[ailment] <= 0)) {//This needs to be fixed.
                 //Not enough supplies.
+                print("SupplyBox should be false" + isSupplyBox);
                 mainScript.textBoxes[11].gameObject.SetActive(true);
+
+                
             } else
             {
+                print("SupplyBox should be true" + isSupplyBox);
                 mainScript.numberLastClicked = patientNumber;
                 mainScript.textBoxes[11].gameObject.SetActive(false);
             }

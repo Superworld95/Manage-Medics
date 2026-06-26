@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 using System.Threading.Tasks;
+using System.Collections;
+using System.Diagnostics;
 
 
 
@@ -84,6 +86,14 @@ public class MedicScript : MonoBehaviour
 
         //Manual pathfinding.
 
+        //Try fix this.
+
+        //I think the idea for this doesn't work because it needs to be case-by-case.
+        //if (nodeCount > destinations[taskToDo] + 6 && destinations[taskToDo] != 0)
+        //{
+        //    nodeCount = destinations[taskToDo] + 6;
+        //}
+
         if (nodeCount == 1)
         {
             task1Chosen = false;
@@ -92,7 +102,7 @@ public class MedicScript : MonoBehaviour
             buttonText[0].text = "?";
             buttonText[1].text = "?";
             buttonText[2].text = "?";
-        } else if (taskToDo < 2)
+        } else if (taskToDo < 2 /*&& nodeCount > destinations[taskToDo] + 6*/)
         {
             switch (destinations[taskToDo])
             {
@@ -102,7 +112,7 @@ public class MedicScript : MonoBehaviour
                 case 4:
                     switch (nodeCount)
                     {
-                        case 7: nodeCount = 8; break;
+                        case 6: nodeCount = 8; break;
                     }
                     break;
                 //case 3:
@@ -419,18 +429,21 @@ public class MedicScript : MonoBehaviour
             {
                 //print("Duration: " + duration+" patientTime: "+ patientScript.time);
                 isWorking = false;
-                uIInformation[0].text = (taskToDo+1)+"/"+3+" Done!";
+                uIInformation[0].text = (taskToDo + 1) + "/" + 3 + " Done!";
                 nodeCount++;
 
-                
+
 
                 if (patientScript != null)
                 {
                     if (patientScript.time <= 0)
                     {
-                        mainScript.score -= 10;
-                        mainScript.health--;
-                        mainScript.PlaySoundEffect(3);
+                        if (!patientScript.isSupplyBox)
+                        {
+                            mainScript.score -= 10;
+                            mainScript.health--;
+                            mainScript.PlaySoundEffect(3);
+                        }
                     }
                     else
                     {
@@ -443,66 +456,81 @@ public class MedicScript : MonoBehaviour
                         {
                             mainScript.score += 10;
                             mainScript.PlaySoundEffect(4);
+                            switch (patientScript.ailment)
+                            {
+                                case 0: break;
+                                case 1:
+                                case 2:
+                                case 3:
+                                case 4:
+                                case 5:
+                                    mainScript.medicalSupplies[patientScript.ailment]--;
+                                    break;
+                                    //(switch (patientScript.ailment))
+                                    //{
+                                    //    mainScript.medicalSupplies[patientScript.ailment]--;
+                                    //}
+
+                            }
                         }
+                        patientScript.selectedAlready = false;
+                        if (durationC > 0)
+                        {
+                            durationC -= 10;
+                        }
+                        duration = durationC; //CHANGE THIS TO CALL THE DURATION.
                     }
-                    patientScript.selectedAlready = false;
-                    if (durationC > 0)
-                    {
-                        durationC -= 10;
-                    }
-                    duration = durationC; //CHANGE THIS TO CALL THE DURATION.
+                    taskToDo++;
+                    patientScript.gameObject.SetActive(false);
+                    patientScript = null;
                 }
-                taskToDo++;
-                patientScript.gameObject.SetActive(false);
-                patientScript = null;
             }
-        }
-        if (isWorking && duration <= 0f)
-        {
-            duration = 500f;
-        }
+            if (isWorking && duration <= 0f)
+            {
+                duration = 500f;
+            }
 
-        if (isWorking && duration >= 0f)
-        {
-            if (patientScript.ailment != profession)
+            if (isWorking && duration >= 0f)
             {
-                durationAmount = 1f / 60f;
-            }
-            else
-            {
-                durationAmount = 5f / 60f;
-            }
-            duration -= durationAmount;
-        }
-        //uIInformation[4].text = duration + " seconds";//Format this into mins.
-        if (isWorking)
-        {
-            print("duration: " + duration + ", duration rounded down mod 10: " + Mathf.Floor(duration) % 10);
-
-            if (Mathf.Floor(duration) % 10 == 0)
-            {
-                print("Sound should be playing");
-                switch (patientScript.ailment)
+                if (patientScript.ailment != profession)
                 {
-                    case 0: mainScript.PlaySoundEffect(0); break;
-                    case 1: case 2: case 3: mainScript.PlaySoundEffect(1); break;
-                    case 4: mainScript.PlaySoundEffect(2); break;
+                    durationAmount = 1f / 60f;
+                }
+                else
+                {
+                    durationAmount = 5f / 60f;
+                }
+                duration -= durationAmount;
+            }
+            //uIInformation[4].text = duration + " seconds";//Format this into mins.
+            if (isWorking)
+            {
+                //print("duration: " + duration + ", duration rounded down mod 10: " + Mathf.Floor(duration) % 10);
+
+                if (Mathf.Floor(duration) % 10 == 0)
+                {
+                    print("Sound should be playing");
+                    switch (patientScript.ailment)
+                    {
+                        case 0: mainScript.PlaySoundEffect(0); break;
+                        case 1: case 2: case 3: mainScript.PlaySoundEffect(1); break;
+                        case 4: mainScript.PlaySoundEffect(2); break;
+                    }
+                }
+
+
+                if (Mathf.Floor(duration % 60) < 10)
+                {
+                    uIInformation[0].text = Mathf.Floor((duration / 60f)) + ":0" + Mathf.Floor(duration % 60);
+                }
+                else
+                {
+                    uIInformation[0].text = Mathf.Floor((duration / 60f)) + ":" + Mathf.Floor(duration % 60);
                 }
             }
-            
 
-            if (Mathf.Floor(duration % 60) < 10)
-            {
-                uIInformation[0].text = Mathf.Floor((duration / 60f)) + ":0" + Mathf.Floor(duration % 60);
-            }
-            else
-            {
-                uIInformation[0].text = Mathf.Floor((duration / 60f)) + ":" + Mathf.Floor(duration % 60);
-            }
+
         }
-
-
-
     }
 
     public void OnMouseUpMethod()
@@ -537,7 +565,7 @@ public class MedicScript : MonoBehaviour
 
             //if (Vector2.Distance(rb.transform.position, patientScript.transform.position) <= 0.65f)
             {
-                print(Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position));
+                //print(Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position));
                 isWorking = true;
 
                 print("Medic is working!");
