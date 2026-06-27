@@ -16,7 +16,7 @@ public class MedicScript : MonoBehaviour
     public int medicNumber = 0;
     public int profession = 0; //Matches the possible patient ailments.
     public float durationAmount = 10f;
-    public float duration = 0f, durationC;
+    public float duration = 0f, durationC = 20f;
     public int[] destinations = new int[3]; //1 to 8.
     public bool task1Chosen = false, task2Chosen = false, task3Chosen = false;
     public int taskToDo = 0;
@@ -78,11 +78,15 @@ public class MedicScript : MonoBehaviour
             }
 
         }
-
-        if (destinations[taskToDo] == 0 && taskToDo < 2 && (task1Chosen && task2Chosen && task3Chosen))
+        if (taskToDo < 3)
         {
-            taskToDo++;
+            if (destinations[taskToDo] == 0 && (task1Chosen && task2Chosen && task3Chosen))
+            {
+                taskToDo++;
+                print("Onto task #" + taskToDo);
+            }
         }
+        
 
         //Manual pathfinding.
 
@@ -102,7 +106,7 @@ public class MedicScript : MonoBehaviour
             buttonText[0].text = "?";
             buttonText[1].text = "?";
             buttonText[2].text = "?";
-        } else if (taskToDo < 2 /*&& nodeCount > destinations[taskToDo] + 6*/)
+        } else if (taskToDo < 3 /*&& nodeCount > destinations[taskToDo] + 6*/)
         {
             switch (destinations[taskToDo])
             {
@@ -147,15 +151,15 @@ public class MedicScript : MonoBehaviour
                     switch (nodeCount)
                     {
                         case 7: nodeCount = 11; break;
-                        case 12: nodeCount = 15; break;
+                        case 12: nodeCount = 17; break;
                     }
                     break;
                 case 11:
                 case 12:
                     switch (nodeCount)
                     {
-                        case 7: nodeCount = 12; break;
-                        case 12: nodeCount = 17; break;
+                        case 7: nodeCount = 11; break;
+                        case 12: nodeCount = 19; break;
                     }
                     break;
 
@@ -392,7 +396,7 @@ public class MedicScript : MonoBehaviour
             {
                 if (Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position) >= 0.05f)
                 {
-                    print("Once all (or some) tasks are chosen, this should execute.");
+                    //print("Once all (or some) tasks are chosen, this should execute.");
 
                     if (rb.transform.position.x > nodes[nodeCount].transform.position.x + 0.05f)
                     {
@@ -440,7 +444,11 @@ public class MedicScript : MonoBehaviour
                 //print("Duration: " + duration+" patientTime: "+ patientScript.time);
                 isWorking = false;
                 uIInformation[0].text = (taskToDo + 1) + "/" + 3 + " Done!";
-                nodeCount++;
+                if (destinations[1] != 0 || destinations[2] != 0)
+                {
+                    nodeCount = 6;
+                }
+                
 
 
 
@@ -474,6 +482,7 @@ public class MedicScript : MonoBehaviour
                                 case 3:
                                 case 4:
                                 case 5:
+                                    print("Supply reduced!");
                                     mainScript.medicalSupplies[patientScript.ailment]--;
                                     break;
                                     //(switch (patientScript.ailment))
@@ -486,11 +495,12 @@ public class MedicScript : MonoBehaviour
                         patientScript.selectedAlready = false;
                         if (durationC > 0)
                         {
-                            durationC -= 10;
+                            durationC -= 5f;
                         }
-                        duration = durationC; //CHANGE THIS TO CALL THE DURATION.
+                        duration = durationC;
                     }
                     taskToDo++;
+                    print("Onto task #"+ taskToDo);
                     patientScript.gameObject.SetActive(false);
                     patientScript = null;
                 }
@@ -519,7 +529,7 @@ public class MedicScript : MonoBehaviour
 
                 if (Mathf.Floor(duration) % 10 == 0)
                 {
-                    print("Sound should be playing");
+                    //print("Sound should be playing");
                     switch (patientScript.ailment)
                     {
                         case 0: mainScript.PlaySoundEffect(0); break;
@@ -568,17 +578,17 @@ public class MedicScript : MonoBehaviour
 
         //print("The position of the destination node is: "+nodes[destinations[taskToDo] + 7].transform.position);//This doesn't work since the queue is not linear.
 
-        if (collision.gameObject.tag == "Patient" && taskToDo < 2)//This code is wrong. It shouldn't be searching for nodes[nodeCount] at all.
+        if (collision.gameObject.tag == "Patient" && taskToDo < 3)//This code is wrong. It shouldn't be searching for nodes[nodeCount] at all.
         {
             patientScript = collision.gameObject.GetComponent<PatientScript>();
             if (patientScript.patientNumber == destinations[taskToDo])
-
-            //if (Vector2.Distance(rb.transform.position, patientScript.transform.position) <= 0.65f)
             {
+                //if (Vector2.Distance(rb.transform.position, patientScript.transform.position) <= 0.65f)
+
                 //print(Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position));
                 isWorking = true;
 
-                print("Medic is working!");
+                print("Medic is working! " + patientScript.patientNumber);
             }
             
         }

@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class PatientScript : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public int patientNumber, scoreValue = 10;
+    public int patientNumber = 0, scoreValue = 10;
     public float time = 10f;
     public int ailment = 0; //0 is poiso, 1 is CPR, 2 is surgery.
     public TMP_Text[] uIInformation = new TMP_Text[4];
@@ -111,13 +111,13 @@ public class PatientScript : MonoBehaviour
         {
             if (!isSupplyBox && (mainScript.medicalSupplies[ailment] <= 0)) {//This needs to be fixed.
                 //Not enough supplies.
-                print("SupplyBox should be false" + isSupplyBox);
+                //print("SupplyBox should be false " + isSupplyBox);
                 mainScript.textBoxes[11].gameObject.SetActive(true);
 
                 
             } else
             {
-                print("SupplyBox should be true" + isSupplyBox);
+                //print("SupplyBox should be true " + isSupplyBox);
                 mainScript.numberLastClicked = patientNumber;
                 mainScript.textBoxes[11].gameObject.SetActive(false);
             }

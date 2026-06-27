@@ -56,6 +56,7 @@ public class MainScript : MonoBehaviour
         textBoxes[5].gameObject.SetActive(false);
         textBoxes[10].gameObject.SetActive(false);
         textBoxes[11].gameObject.SetActive(false);
+        textBoxes[12].gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -212,43 +213,58 @@ public class MainScript : MonoBehaviour
                         patientCast[numberLastClicked-1].GetComponent<PatientScript>().selectedAlready = true;
                         medicScript.task1Chosen = true;
                         medicScript.buttonText[0].text = numberLastClicked + "";
-                        medicScript.durationC = 40f;
-                        textBoxes[1].gameObject.SetActive(false);
+                        medicScript.durationC = 60f;
+                        textBoxes[12].gameObject.SetActive(false);
                     } else
                     {
                         print("This one's already selected! 1/3");
-                        textBoxes[1].gameObject.SetActive(true);
+                        textBoxes[12].gameObject.SetActive(true);
+                        if(!medicScript.awaitingSchedule)
+                        {
+                            patientCast[numberLastClicked - 1].GetComponent<PatientScript>().selectedAlready = false;
+                            textBoxes[12].gameObject.SetActive(false);
+                        }
                     }
                                            
                     break;
                 case 2:
-                    if (!patientCast[numberLastClicked].GetComponent<PatientScript>().selectedAlready)
+                    if (!patientCast[numberLastClicked-1].GetComponent<PatientScript>().selectedAlready)
                     {
-                        patientCast[numberLastClicked].GetComponent<PatientScript>().selectedAlready = true;
+                        patientCast[numberLastClicked-1].GetComponent<PatientScript>().selectedAlready = true;
                         medicScript.task2Chosen = true;
                         medicScript.buttonText[1].text = numberLastClicked + "";
-                        medicScript.durationC = 30f;
-                        textBoxes[1].gameObject.SetActive(false);
+                        medicScript.durationC = 60f;
+                        textBoxes[12].gameObject.SetActive(false);
                     }
                     else
                     {
                         print("This one's already selected! 2/3");
-                        textBoxes[1].gameObject.SetActive(true);
+                        textBoxes[12].gameObject.SetActive(true);
+                        if (!medicScript.awaitingSchedule)
+                        {
+                            patientCast[numberLastClicked - 1].GetComponent<PatientScript>().selectedAlready = false;
+                            textBoxes[12].gameObject.SetActive(false);
+                        }
                     }
                     break;
                 case 3:
-                    if (!patientCast[numberLastClicked].GetComponent<PatientScript>().selectedAlready)
+                    if (!patientCast[numberLastClicked-1].GetComponent<PatientScript>().selectedAlready)
                     {
-                        patientCast[numberLastClicked].GetComponent<PatientScript>().selectedAlready = true;
+                        patientCast[numberLastClicked-1].GetComponent<PatientScript>().selectedAlready = true;
                         medicScript.task3Chosen = true;
                         medicScript.buttonText[2].text = numberLastClicked + "";
-                        medicScript.durationC = 10f;
-                        textBoxes[1].gameObject.SetActive(false);
+                        medicScript.durationC = 60f;
+                        textBoxes[12].gameObject.SetActive(false);
+                        if (!medicScript.awaitingSchedule)
+                        {
+                            patientCast[numberLastClicked - 1].GetComponent<PatientScript>().selectedAlready = false;
+                            textBoxes[12].gameObject.SetActive(false);
+                        }
                     }
                     else
                     {
                         print("This one's already selected! 3/3");
-                        textBoxes[1].gameObject.SetActive(true);
+                        textBoxes[12].gameObject.SetActive(true);
                     }
                     break;                    
             }
@@ -268,7 +284,7 @@ public class MainScript : MonoBehaviour
 
     public void PlaySoundEffect(int num)
     {
-        print("Play sound " + num);
+        //print("Play sound " + num);
 
         if (!audioSource.isPlaying)
         {
