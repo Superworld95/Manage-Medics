@@ -19,7 +19,7 @@ public class MainScript : MonoBehaviour
     public InputActionAsset inputAsset;
     public int taskChosen = 0, numberLastClicked = 0;
     public TMP_Text scoreNum, hPNum;
-    public float time;
+    public float time, finTime = 250;
 
     public TMP_Text[] textBoxes = new TMP_Text[2];
 
@@ -66,9 +66,20 @@ public class MainScript : MonoBehaviour
         scoreNum.text = score+"";
         hPNum.text = health + "";
 
+        if (Mathf.Floor((finTime - time) % 60) < 10)
+        {
+            textBoxes[14].text = Mathf.Floor((finTime - time)/60) + ":0" + Mathf.Floor(finTime - time) % 60;
+        }
+        else
+        {
+            textBoxes[14].text = Mathf.Floor((finTime - time) / 60) + ":" + Mathf.Floor(finTime - time) % 60;
+        }
+        //textBoxes[14].text = 180f - time +"";
+
         //print("Time: " + time);
         switch (time)
         {
+            /*
             case > 1 when time < 2: //THIS WILL BE REMOVED.
                 SetPatient(0, 0, 900f, false);
                 SetPatient(1, 0, 900f, false);
@@ -83,7 +94,9 @@ public class MainScript : MonoBehaviour
                 SetPatient(10, 0, 900f, false);
                 SetPatient(11, 0, 900f, false);
                 break;
-                /*RESTORE THIS LATER
+                */
+
+                //RESTORE THIS LATER
             case >20 when time<21:
                 SetPatient(2, 0, 90f, false);
                 break;
@@ -109,36 +122,37 @@ public class MainScript : MonoBehaviour
             case > 100 when time < 101:
                 SetPatient(1, 0, 90f, false);
                 SetPatient(2, 1, 90f, true);
+                SetMedic(3, 1);
+                SetMedic(4, 1);
                 break;
             case > 120 when time < 121:
-                SetPatient(9, 1, 90f, true);
-                SetPatient(10, 1, 90f, true);
-                SetPatient(11, 1, 90f, false);
+                SetPatient(9, 1, 110f, true);
+                SetPatient(10, 1, 110f, true);
+                SetPatient(11, 1, 110f, false);
                 break;
             case > 130 when time < 131:
                 SetPatient(3, 0, 90f, false);
                 SetPatient(4, 0, 90f, false);
                 break;
-            case > 150 when time < 151:
-                SetPatient(5, 0, 90f, false);
-                SetPatient(6, 0, 90f, false);
-                SetPatient(7, 1, 90f, true);
-                SetPatient(8, 0, 90f, false);
+            case > 160 when time < 151:
+                SetPatient(5, 0, 120f, false);
+                SetPatient(6, 0, 120f, false);
+                SetPatient(7, 1, 120f, true);
+                SetPatient(8, 0, 120f, false);
                 break;
-            case > 170 when time < 171:
-                SetPatient(9, 0, 90f, false);
-                SetPatient(10, 1, 90f, false);
-                SetPatient(11, 0, 90f, false);
-                SetPatient(11, 1, 90f, true);
+            case > 190 when time < 171:
+                SetPatient(9, 0, 120f, false);
+                SetPatient(10, 1, 120f, false);
+                SetPatient(11, 0, 120f, false);
+                SetPatient(11, 1, 120f, true);
                 break;
-            case > 300 when time < 301:
-                textBoxes[0].gameObject.SetActive(true);
-                textBoxes[0].text = "You survived! There are no more patients left, so you have reached the end. See your high score. Either close or reset.";
-                Time.timeScale = 0;
-                break;
-                */
-                //The UI for different supplies appears at some point.
 
+        }
+        if (time > finTime)
+        {
+            textBoxes[0].gameObject.SetActive(true);
+            textBoxes[0].text = "You survived! There are no more patients left, so you have reached the end. See your high score. Either close or reset.";
+            Time.timeScale = 0;
         }
 
         if (health <= 0)

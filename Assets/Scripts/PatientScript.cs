@@ -42,10 +42,18 @@ public class PatientScript : MonoBehaviour
         {
             OnMouseUpMethod();
         }
+        if (isSupplyBox)
+        {
+            uIInformation[3].text = "Have:";
+        } else
+        {
+            uIInformation[3].text = "Need:";
+        }
 
         if (time <= 1f)
         {
             mainScript.LoseScore(scoreValue);
+            mainScript.PlaySoundEffect(3);
             rb.transform.position = new Vector2(0f, -20f);
             rb.gameObject.SetActive(false);
         }

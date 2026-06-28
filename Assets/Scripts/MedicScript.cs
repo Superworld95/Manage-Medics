@@ -222,44 +222,6 @@ public class MedicScript : MonoBehaviour
                 }
             }
 
-            //if (task1Chosen && task2Chosen && task3Chosen)
-            //{
-            //    //print("This should display.");
-            //    uIInformation[0].gameObject.SetActive(true);
-            //    uIInformation[1].gameObject.SetActive(true);
-            //    uIInformation[2].gameObject.SetActive(true);
-            //    uIInformation[3].gameObject.SetActive(true);
-            //    uIInformation[4].gameObject.SetActive(true);
-            //    uIInformation[5].gameObject.SetActive(true);
-            //    uIInformation[6].gameObject.SetActive(false);
-            //    //if (task1Chosen && task2Chosen && task3Chosen)
-            //    //{
-            //    //    uIInformation[6].gameObject.SetActive(false);
-            //    //    awaitingSchedule = false;
-            //    //    print("Not awaiting schedule now.");
-            //    //}
-            //}
-            //else
-            //{
-            //    //print("This should display.");
-            //    uIInformation[6].gameObject.SetActive(true);
-
-            //    uIInformation[0].gameObject.SetActive(false);
-            //    uIInformation[1].gameObject.SetActive(false);
-            //    uIInformation[2].gameObject.SetActive(false);
-            //    uIInformation[3].gameObject.SetActive(false);
-            //    uIInformation[4].gameObject.SetActive(false);
-            //    uIInformation[5].gameObject.SetActive(false);
-
-            //    if (awaitingSchedule)
-            //    {
-            //        awaitingSchedule = false;
-            //        print("Not awaiting schedule now.");
-            //    }
-
-            //    //Show schedule planner.
-            //}
-
             if (doingWrongOperation)
             {
                 doingWrongOperation = false;
@@ -267,18 +229,8 @@ public class MedicScript : MonoBehaviour
 
         }
         else if (clickedOn && !awaitingSchedule) {
-            //uIInformation[4].gameObject.SetActive(true);
-
-            //if (uIInformation[6].gameObject)
-            //{
-            //    uIInformation[6].gameObject.SetActive(false);
-            //} else
-            //{
-            //    uIInformation[6].gameObject.SetActive(true);
-            //}
 
             uIInformation[6].gameObject.SetActive(false);
-            //uIInformation[7].gameObject.SetActive(false);
 
             uIInformation[0].gameObject.SetActive(true);
             uIInformation[1].gameObject.SetActive(true);
@@ -300,10 +252,6 @@ public class MedicScript : MonoBehaviour
             uIInformation[6].gameObject.SetActive(false);
             //Close other information
         }
-
-
-
-
 
         //queueNodeScript = null; queueNodeScript2 = null;
 
@@ -460,8 +408,9 @@ public class MedicScript : MonoBehaviour
                         {
                             mainScript.score -= 10;
                             mainScript.health--;
-                            mainScript.PlaySoundEffect(3);
+                            mainScript.PlaySoundEffect(3);                            
                         }
+                        nodeCount++;
                     }
                     else
                     {
@@ -507,14 +456,14 @@ public class MedicScript : MonoBehaviour
             }
             if (isWorking && duration <= 0f)
             {
-                duration = 500f;
+                duration = 60f;
             }
 
             if (isWorking && duration >= 0f)
             {
                 if (patientScript.ailment != profession)
                 {
-                    durationAmount = 1f / 60f;
+                    durationAmount = 3f / 60f;
                 }
                 else
                 {
@@ -589,6 +538,15 @@ public class MedicScript : MonoBehaviour
                 isWorking = true;
 
                 print("Medic is working! " + patientScript.patientNumber);
+                //Set the particle effects HERE.
+                if (Random.Range(1, 8) == 0)
+                {
+                    doingWrongOperation = true;
+                } else
+                {
+                    doingWrongOperation = false;
+                }
+
             }
             
         }
