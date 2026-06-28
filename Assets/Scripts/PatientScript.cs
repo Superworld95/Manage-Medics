@@ -44,10 +44,10 @@ public class PatientScript : MonoBehaviour
         }
         if (isSupplyBox)
         {
-            uIInformation[3].text = "Have:";
+            uIInformation[3].text = "Has:";
         } else
         {
-            uIInformation[3].text = "Need:";
+            uIInformation[3].text = "Needs:";
         }
 
         if (time <= 1f)

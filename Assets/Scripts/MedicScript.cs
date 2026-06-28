@@ -32,6 +32,8 @@ public class MedicScript : MonoBehaviour
     public InputActionAsset inputAsset;
 
     public Vector2 worldPos;
+    public GameObject particleEffect;
+    public ParticleSystem particleSystem;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -45,8 +47,9 @@ public class MedicScript : MonoBehaviour
         uIInformation[4].gameObject.SetActive(false);
         uIInformation[5].gameObject.SetActive(false);
         uIInformation[6].gameObject.SetActive(false);
-
+        particleSystem = particleEffect.GetComponent<ParticleSystem>();
         //uIInformation[7].gameObject.SetActive(false);
+        particleEffect.SetActive(false);
     }
 
     void Update()
@@ -60,7 +63,7 @@ public class MedicScript : MonoBehaviour
             {
                 //print("Clicked on the medic.");
                 OnMouseUpMethod();
-            }
+            } else { OnMouseOverMethod(); }
         }
         else if (uIInformation[6].gameObject.active /*&& Vector2.Distance(worldPos, uIInformation[6].gameObject.transform.position) <= 3f */)
         {
@@ -224,7 +227,9 @@ public class MedicScript : MonoBehaviour
 
             if (doingWrongOperation)
             {
+                print("Doing wrong op! But not anymore!");
                 doingWrongOperation = false;
+                particleSystem.startColor = Color.green;
             }
 
         }
@@ -391,6 +396,7 @@ public class MedicScript : MonoBehaviour
             {
                 //print("Duration: " + duration+" patientTime: "+ patientScript.time);
                 isWorking = false;
+                particleEffect.SetActive(false);
                 uIInformation[0].text = (taskToDo + 1) + "/" + 3 + " Done!";
                 if (destinations[1] != 0 || destinations[2] != 0)
                 {
@@ -463,11 +469,25 @@ public class MedicScript : MonoBehaviour
             {
                 if (patientScript.ailment != profession)
                 {
-                    durationAmount = 3f / 60f;
+                    if (doingWrongOperation)
+                    {
+                        durationAmount = 1f / 60f;
+                    } else
+                    {
+                        durationAmount = 3f / 60f;
+                    }
+                        
                 }
                 else
                 {
-                    durationAmount = 5f / 60f;
+                    if (doingWrongOperation)
+                    {
+                        durationAmount = 4f / 60f;
+                    }
+                    else
+                    {
+                        durationAmount = 5f / 60f;
+                    }
                 }
                 duration -= durationAmount;
             }
@@ -511,6 +531,17 @@ public class MedicScript : MonoBehaviour
     {
         //Some kind of indication that you can click
         //print("Mouse over Medic #" +medicNumber);
+        if (!awaitingSchedule)
+        {
+            uIInformation[6].gameObject.SetActive(false);
+
+            uIInformation[0].gameObject.SetActive(true);
+            uIInformation[1].gameObject.SetActive(true);
+            uIInformation[2].gameObject.SetActive(true);
+            uIInformation[3].gameObject.SetActive(true);
+            uIInformation[4].gameObject.SetActive(true);
+            uIInformation[5].gameObject.SetActive(true);
+        }
     }
     public void OnMouseExitMethod()
     {
@@ -536,15 +567,17 @@ public class MedicScript : MonoBehaviour
 
                 //print(Vector2.Distance(rb.transform.position, nodes[nodeCount].transform.position));
                 isWorking = true;
-
+                particleEffect.SetActive(true);
                 print("Medic is working! " + patientScript.patientNumber);
                 //Set the particle effects HERE.
-                if (Random.Range(1, 8) == 0)
+                if (Random.Range(0, 7) == 0)
                 {
                     doingWrongOperation = true;
+                    particleSystem.startColor = Color.red;
                 } else
                 {
                     doingWrongOperation = false;
+                    particleSystem.startColor = Color.green;
                 }
 
             }
@@ -553,11 +586,11 @@ public class MedicScript : MonoBehaviour
 
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
+    //public void OnTriggerEnter2D(Collider2D collision)
+    //{
 
         
-    }
+    //}
 
     public void Button1Pressed()
     {
