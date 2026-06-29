@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: beb646519edee5048a5f8fd3b2431add
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3417750023197362193
+    second: Bulding01_0
+  - first:
+      213: -5963630347899603927
+    second: Bulding01_1
+  - first:
+      213: 3359518002393581043
+    second: Bulding01_2
+  - first:
+      213: -4623040828911582639
+    second: Bulding01_3
+  - first:
+      213: 2627496538129867431
+    second: Bulding01_4
+  - first:
+      213: -7752655101682528764
+    second: Bulding01_5
+  - first:
+      213: -8051497295383521786
+    second: Bulding01_6
+  - first:
+      213: -8570423204215720549
+    second: Bulding01_7
+  - first:
+      213: 1301299806526532811
+    second: Bulding01_8
+  - first:
+      213: -575295953863572161
+    second: Bulding01_9
+  - first:
+      213: 4456023613629757641
+    second: Bulding01_10
+  - first:
+      213: -2704156018138827098
+    second: Bulding01_11
+  - first:
+      213: -9113197102266849543
+    second: Bulding01_12
+  - first:
+      213: -2511132956861035450
+    second: Bulding01_13
+  - first:
+      213: 1826308139808158401
+    second: Bulding01_14
+  - first:
+      213: -7351167897828041091
+    second: Bulding01_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bulding01_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 292
+        width: 130
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe7fc304676b190d0800000000000000
+      internalID: -3417750023197362193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulding01_1
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 293
+        width: 130
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92474b59bcdec3da0800000000000000
+      internalID: -5963630347899603927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulding01_2
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 454
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f5033dd2d76f9e20800000000000000
+      internalID: 3359518002393581043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulding01_3
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 454
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 152099a2cd8a7dfb0800000000000000
+      internalID: -4623040828911582639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulding01_4
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 454
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a2accb2e2eb67420800000000000000
+      internalID: 2627496538129867431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulding01_5
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 454
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40ec716a249096490800000000000000
+      internalID: -7752655101682528764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulding01_6
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 454
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60695a65ed5534090800000000000000
+      internalID: -8051497295383521786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulding01_7
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 454
+        width: 33
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b95f4f9f08dbf0980800000000000000
+      internalID: -8570423204215720549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulding01_8
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 390
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcc6c4a87452f0210800000000000000
+      internalID: 1301299806526532811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulding01_9
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 390
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f350e35c0632408f0800000000000000
+      internalID: -575295953863572161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulding01_10
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 390
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c877291ed9f6dd30800000000000000
+      internalID: 4456023613629757641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulding01_11
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 382
+        width: 50
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a6b991cd68e87ad0800000000000000
+      internalID: -2704156018138827098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulding01_12
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 386
+        width: 50
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f6e34fe48b678180800000000000000
+      internalID: -9113197102266849543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulding01_13
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 145
+        width: 258
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64c858a51e9a62dd0800000000000000
+      internalID: -2511132956861035450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulding01_14
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 318
+        width: 50
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c27ba3b399585910800000000000000
+      internalID: 1826308139808158401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulding01_15
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 128
+        width: 96
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7e54bdbeb76bf990800000000000000
+      internalID: -7351167897828041091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Bulding01_0: -3417750023197362193
+      Bulding01_1: -5963630347899603927
+      Bulding01_10: 4456023613629757641
+      Bulding01_11: -2704156018138827098
+      Bulding01_12: -9113197102266849543
+      Bulding01_13: -2511132956861035450
+      Bulding01_14: 1826308139808158401
+      Bulding01_15: -7351167897828041091
+      Bulding01_2: 3359518002393581043
+      Bulding01_3: -4623040828911582639
+      Bulding01_4: 2627496538129867431
+      Bulding01_5: -7752655101682528764
+      Bulding01_6: -8051497295383521786
+      Bulding01_7: -8570423204215720549
+      Bulding01_8: 1301299806526532811
+      Bulding01_9: -575295953863572161
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

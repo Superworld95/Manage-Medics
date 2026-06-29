@@ -19,7 +19,7 @@ public class MainScript : MonoBehaviour
     public InputActionAsset inputAsset;
     public int taskChosen = 0, numberLastClicked = 0;
     public TMP_Text scoreNum, hPNum;
-    public float time, finTime = 250;
+    public float time, finTime = 200;
 
     public TMP_Text[] textBoxes = new TMP_Text[2];
 

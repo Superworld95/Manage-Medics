@@ -5,6 +5,7 @@ using TMPro;
 using System.Threading.Tasks;
 using System.Collections;
 using System.Diagnostics;
+using JetBrains.Annotations;
 
 
 
@@ -35,6 +36,8 @@ public class MedicScript : MonoBehaviour
     public GameObject particleEffect;
     public ParticleSystem particleSystem;
 
+    public Animator anim;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -50,6 +53,7 @@ public class MedicScript : MonoBehaviour
         particleSystem = particleEffect.GetComponent<ParticleSystem>();
         //uIInformation[7].gameObject.SetActive(false);
         particleEffect.SetActive(false);
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -302,21 +306,39 @@ public class MedicScript : MonoBehaviour
                     {
                         rb.transform.position += new Vector3(-travelSpeed, 0f, 0f);
                         //print("Moving along -x");
+                        anim.SetBool("Left", true);
+                        anim.SetBool("Right", false);
                     }
                     else if (rb.transform.position.x < nodes[nodeCount].transform.position.x - 0.05f)
                     {
                         rb.transform.position += new Vector3(travelSpeed, 0f, 0f);
                         //print("Moving along x");
+                        anim.SetBool("Left", false);
+                        anim.SetBool("Right", true);
+                    }
+                    else
+                    {
+                        anim.SetBool("Left", false);
+                        anim.SetBool("Right", false);
                     }
                     if (rb.transform.position.y > nodes[nodeCount].transform.position.y + 0.05f)
                     {
                         rb.transform.position += new Vector3(0f, -travelSpeed, 0f);
                         //print("Moving along -y");
+                        anim.SetBool("Down", true);
+                        anim.SetBool("Up", false);
                     }
                     else if (rb.transform.position.y < nodes[nodeCount].transform.position.y - 0.05f)
                     {
                         rb.transform.position += new Vector3(0f, travelSpeed, 0f);
                         //print("Moving along y");
+                        anim.SetBool("Down", false);
+                        anim.SetBool("Up", true);
+                    }
+                    else
+                    {
+                        anim.SetBool("Down", false);
+                        anim.SetBool("Up", false);
                     }
                     //awaitingSchedule = false;
                 }
@@ -355,21 +377,39 @@ public class MedicScript : MonoBehaviour
                     {
                         rb.transform.position += new Vector3(-travelSpeed, 0f, 0f);
                         //print("Moving along -x");
+                        anim.SetBool("Left", true);
+                        anim.SetBool("Right", false);
                     }
                     else if (rb.transform.position.x < nodes[nodeCount].transform.position.x - 0.05f)
                     {
                         rb.transform.position += new Vector3(travelSpeed, 0f, 0f);
                         //print("Moving along x");
+                        anim.SetBool("Left", false);
+                        anim.SetBool("Right", true);
+                    }
+                    else
+                    {
+                        anim.SetBool("Left", false);
+                        anim.SetBool("Right", false);
                     }
                     if (rb.transform.position.y > nodes[nodeCount].transform.position.y + 0.05f)
                     {
                         rb.transform.position += new Vector3(0f, -travelSpeed, 0f);
                         //print("Moving along -y");
+                        anim.SetBool("Down", true);
+                        anim.SetBool("Up", false);
                     }
                     else if (rb.transform.position.y < nodes[nodeCount].transform.position.y - 0.05f)
                     {
                         rb.transform.position += new Vector3(0f, travelSpeed, 0f);
                         //print("Moving along y");
+                        anim.SetBool("Down", false);
+                        anim.SetBool("Up", true);
+                    }
+                    else
+                    {
+                        anim.SetBool("Down", false);
+                        anim.SetBool("Up", false);
                     }
                     //awaitingSchedule = false;
                 }
