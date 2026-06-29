@@ -558,6 +558,12 @@ public class MedicScript : MonoBehaviour
 
         //print("The position of the destination node is: "+nodes[destinations[taskToDo] + 7].transform.position);//This doesn't work since the queue is not linear.
 
+        
+
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.gameObject.tag == "Patient" && taskToDo < 3)//This code is wrong. It shouldn't be searching for nodes[nodeCount] at all.
         {
             patientScript = collision.gameObject.GetComponent<PatientScript>();
@@ -574,23 +580,19 @@ public class MedicScript : MonoBehaviour
                 {
                     doingWrongOperation = true;
                     particleSystem.startColor = Color.red;
-                } else
+                    print("Oh noes wrong op better click.");
+                }
+                else
                 {
                     doingWrongOperation = false;
                     particleSystem.startColor = Color.green;
                 }
 
             }
-            
+
         }
 
     }
-
-    //public void OnTriggerEnter2D(Collider2D collision)
-    //{
-
-        
-    //}
 
     public void Button1Pressed()
     {
