@@ -21,6 +21,9 @@ public class PatientScript : MonoBehaviour
     public bool isSupplyBox = false;
     public bool selectedAlready = false;
 
+    public SpriteRenderer selfSprite, boxSprite;
+    public GameObject eyesObj;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,7 +34,7 @@ public class PatientScript : MonoBehaviour
         //screenPos = Input.mousePosition;
         //screenPos = Mouse.current.position;
         uIInformation[3].gameObject.SetActive(false);
-        
+        boxSprite.enabled = false;
     }
 
     // Update is called once per frame
@@ -102,10 +105,16 @@ public class PatientScript : MonoBehaviour
         }
         if (isSupplyBox)
         {
-            rb.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+            //rb.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+            selfSprite.enabled = false;
+            eyesObj.SetActive(false);
+            boxSprite.enabled = true;
         } else
         {
-            rb.gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+            //rb.gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+            selfSprite.enabled = true;
+            eyesObj.SetActive(true);
+            boxSprite.enabled = false;
         }
     }
     void FixedUpdate()

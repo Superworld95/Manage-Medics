@@ -48,7 +48,7 @@ public class MainScript : MonoBehaviour
         
 
         textBoxes[0].gameObject.SetActive(false);
-        health = 6;
+        health = 12;
 
         textBoxes[2].gameObject.SetActive(false);
         textBoxes[3].gameObject.SetActive(false);
@@ -85,10 +85,10 @@ public class MainScript : MonoBehaviour
                 SetPatient(1, 0, 900f, false);
                 SetPatient(2, 0, 900f, false);
                 SetPatient(3, 0, 900f, false);
-                SetPatient(4, 0, 900f, false);
+                SetPatient(4, 0, 900f, true);
                 SetPatient(5, 0, 900f, false);
                 SetPatient(6, 0, 900f, false);
-                SetPatient(7, 0, 900f, false);
+                SetPatient(7, 0, 900f, true);
                 SetPatient(8, 0, 900f, false);
                 SetPatient(9, 0, 900f, false);
                 SetPatient(10, 0, 900f, false);

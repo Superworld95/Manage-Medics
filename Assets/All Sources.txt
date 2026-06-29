@@ -1,3 +1,35 @@
+References
+
+Sound Effects
+
+reg7784. (n.d.). Defibrillator [Sound effect]. Pixabay. https://pixabay.com/sound-effects/film-special-effects-defibrillator-6961/
+
+Rudmer_Rotteveel. (n.d.). Pill bottle quick shaking out pills 02 [Sound effect]. Pixabay. https://pixabay.com/sound-effects/household-pill-bottle-quick-shaking-out-pills-02-38710/
+
+CapsLok. (n.d.). Tools ratchet [Sound effect]. Pixabay. https://pixabay.com/sound-effects/technology-tools-ratchet-33787/
+
+caboose02169969. (n.d.). Weird scream [Sound effect]. Pixabay. https://pixabay.com/sound-effects/film-special-effects-weird-scream-83171/
+
+cinnamon. (n.d.). Whoo [Sound effect]. Pixabay. https://pixabay.com/sound-effects/people-whoo-37516/
+
+Music
+
+MagalyStudio. (n.d.). Medical services [Music track]. Pixabay. https://pixabay.com/music/corporate-medical-services-519652/
+
+HitsLab. (n.d.). Elevator: Elevator music background [Music track]. Pixabay. https://pixabay.com/music/cafe-elevator-elevator-music-background-278381/
+
+Assets (Tileset/Sprites)
+
+SoppyCraft. (n.d.). Hospital Top-Down Pixel Pack [Free] [Sprite pack]. itch.io. https://soppycraft.itch.io/top-down-hospital
+
+Fonts
+
+SPOICAT. (n.d.). Spofonts [Font]. itch.io. https://spoicat.itch.io/spofonts
+
+
+
+
+Simplified Sources:
 Pixabay:
 defibrillator - by reg7784 (Freesound) - https://pixabay.com/sound-effects/film-special-effects-defibrillator-6961/
 
@@ -15,6 +47,11 @@ medical services - by MagalyStudio - https://pixabay.com/music/corporate-medical
 
 Elevator - Elevator Music Background - by HitsLab - https://pixabay.com/music/cafe-elevator-elevator-music-background-278381/
 
+Hospital Top-Down Pixel Pack [Free] - by SoppyCraft - https://soppycraft.itch.io/top-down-hospital
+
+Spofonts - by SPOICAT - https://spoicat.itch.io/spofonts
+
+Sprites:
 Hospital Top-Down Pixel Pack [Free] - by SoppyCraft - https://soppycraft.itch.io/top-down-hospital
 
 Spofonts - by SPOICAT - https://spoicat.itch.io/spofonts
