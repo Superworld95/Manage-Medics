@@ -19,7 +19,7 @@ public class MainScript : MonoBehaviour
     public InputActionAsset inputAsset;
     public int taskChosen = 0, numberLastClicked = 0;
     public TMP_Text scoreNum, hPNum;
-    public float time, finTime = 200;
+    public float time, finTime = 140;
 
     public TMP_Text[] textBoxes = new TMP_Text[2];
 
@@ -48,7 +48,7 @@ public class MainScript : MonoBehaviour
         
 
         textBoxes[0].gameObject.SetActive(false);
-        health = 12;
+        health = 8;
 
         textBoxes[2].gameObject.SetActive(false);
         textBoxes[3].gameObject.SetActive(false);

@@ -203,7 +203,16 @@ public class MedicScript : MonoBehaviour
         {
             nodeCount = 0;
         }
-
+        if (clickedOn)
+        {
+            if (doingWrongOperation)
+            {
+                print("Doing wrong op! But not anymore!");
+                doingWrongOperation = false;
+                particleSystem.startColor = Color.green;
+            }
+        }
+        
         if (clickedOn && awaitingSchedule)
         {
             //print("This should display.");
@@ -229,12 +238,7 @@ public class MedicScript : MonoBehaviour
                 }
             }
 
-            if (doingWrongOperation)
-            {
-                print("Doing wrong op! But not anymore!");
-                doingWrongOperation = false;
-                particleSystem.startColor = Color.green;
-            }
+            
 
         }
         else if (clickedOn && !awaitingSchedule) {
