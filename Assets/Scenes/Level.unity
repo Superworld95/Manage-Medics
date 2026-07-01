@@ -998,6 +998,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3465621194020819998, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: mainScript
       value: 
@@ -1044,6 +1052,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5277732924074474409, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601498960441261683, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1352,6 +1364,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3465621194020819998, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: mainScript
       value: 
@@ -1400,6 +1420,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8601498960441261683, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1430,6 +1454,14 @@ PrefabInstance:
     - target: {fileID: 93966769925216425, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3465621194020819998, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: mainScript
@@ -1479,6 +1511,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8601498960441261683, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1509,6 +1545,14 @@ PrefabInstance:
     - target: {fileID: 93966769925216425, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3465621194020819998, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: mainScript
@@ -1556,6 +1600,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5277732924074474409, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601498960441261683, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3552,6 +3600,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patient (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3465621194020819998, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: mainScript
       value: 
@@ -3598,6 +3654,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5277732924074474409, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601498960441261683, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5426,6 +5486,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patient (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3465621194020819998, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: mainScript
       value: 
@@ -5472,6 +5540,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5277732924074474409, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601498960441261683, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5990,6 +6062,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3465621194020819998, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: mainScript
       value: 
@@ -6036,6 +6116,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5277732924074474409, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601498960441261683, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9063,9 +9147,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "1. Mouse over patients to see their condition. \n2. Click on a medic on
-    the left. \n3. Click a ? then click a patient to assign a task. Choose 3 tasks
-    or click Go. Can also click on patient first then ? .\n4. Click on medics doing
-    the wrong operation.\n5. Make sure patients survive."
+    the left. \n3. Click on a ? and patient in any order. Choose 3 tasks or click
+    Go.\n4. Click on medics doing the wrong operation.\n5. Make sure patients survive,
+    else lose HP."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aee83710eaa0cbe43ab341e06bcb4ed8, type: 2}
   m_sharedMaterial: {fileID: -1317809827641016009, guid: aee83710eaa0cbe43ab341e06bcb4ed8, type: 2}
@@ -9963,6 +10047,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3465621194020819998, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: mainScript
       value: 
@@ -10009,6 +10101,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5277732924074474409, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601498960441261683, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -10714,6 +10810,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3465621194020819998, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: mainScript
       value: 
@@ -10760,6 +10864,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5277732924074474409, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601498960441261683, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11152,6 +11260,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3465621194020819998, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: mainScript
       value: 
@@ -11198,6 +11314,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5277732924074474409, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601498960441261683, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11322,6 +11442,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3465621194020819998, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: mainScript
       value: 
@@ -11368,6 +11496,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5277732924074474409, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601498960441261683, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -12708,6 +12840,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patient
       objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147052016976109479, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3465621194020819998, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: mainScript
       value: 
@@ -12754,6 +12894,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5277732924074474409, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601498960441261683, guid: 4c9a5210cb4c7674cbfead1672652d81, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
