@@ -1651,7 +1651,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -556, y: 231.7}
+  m_AnchoredPosition: {x: 442, y: 183}
   m_SizeDelta: {x: 293.5, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &245304251
@@ -9116,7 +9116,7 @@ RectTransform:
   m_GameObject: {fileID: 1544623939}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2007291942}
@@ -9124,7 +9124,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 491.3, y: 467.99997}
-  m_SizeDelta: {x: 780.2, y: 50}
+  m_SizeDelta: {x: 969.43, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1544623941
 MonoBehaviour:
@@ -9148,8 +9148,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "1. Mouse over patients to see their condition. \n2. Click on a medic on
     the left. \n3. Click on a ? and patient in any order. Choose 3 tasks or click
-    Go.\n4. Click on medics doing the wrong operation.\n5. Make sure patients survive,
-    else lose HP.\n6. No pausing is possible. Good luck!"
+    Go. The medics up the queue go first.\n4. Click on medics doing the wrong operation.\n5.
+    Make sure patients survive, else lose HP.\n6. No pausing is possible. Good luck!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aee83710eaa0cbe43ab341e06bcb4ed8, type: 2}
   m_sharedMaterial: {fileID: -1317809827641016009, guid: aee83710eaa0cbe43ab341e06bcb4ed8, type: 2}

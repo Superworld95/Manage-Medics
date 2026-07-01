@@ -446,9 +446,9 @@ public class MedicScript : MonoBehaviour
                 {
                     nodeCount = 6;
                 }
+
+
                 
-
-
 
                 if (patientScript != null)
                 {
@@ -468,11 +468,13 @@ public class MedicScript : MonoBehaviour
                         if (patientScript.isSupplyBox)
                         {
                             mainScript.medicalSupplies[patientScript.ailment]++;
+                            
                         }
                         else
                         {
                             mainScript.score += 10;
                             mainScript.PlaySoundEffect(4);
+                            
                             switch (patientScript.ailment)
                             {
                                 case 0: break;
@@ -504,10 +506,21 @@ public class MedicScript : MonoBehaviour
                     patientScript = null;
                 }
             }
+            if (duration < 15f && duration > 0f)
+            {
+                particleEffect.SetActive(true);
+                particleSystem.startColor = Color.yellow;
+            }
+            else if (duration <= 0f)
+            {
+                particleEffect.SetActive(false);
+            }
             if (isWorking && duration <= 0f)
             {
                 duration = 60f;
             }
+
+            
 
             if (isWorking && duration >= 0f)
             {

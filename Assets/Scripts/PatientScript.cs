@@ -74,7 +74,7 @@ public class PatientScript : MonoBehaviour
             //print(Time.deltaTime);
             time -= 1f/(60f*4f);
             slider.value = time/(timeC+20f);
-            print("This should be updating. "+time + " of "+timeC);
+            //print("This should be updating. "+time + " of "+timeC);
             //time--;
         }
         if (Mathf.Floor(time % 60) < 10)
