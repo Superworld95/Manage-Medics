@@ -4,30 +4,31 @@ Sound Effects
 
 CapsLok. (n.d.). Tools ratchet [Sound effect]. Pixabay. https://pixabay.com/sound-effects/technology-tools-ratchet-33787/
 
-caboose02169969. (n.d.). Weird scream [Sound effect]. Pixabay. https://pixabay.com/sound-effects/film-special-effects-weird-scream-83171/
+Caboose02169969. (n.d.). Weird scream [Sound effect]. Pixabay. https://pixabay.com/sound-effects/film-special-effects-weird-scream-83171/
 
-cinnamon. (n.d.). whoo [Sound effect]. Pixabay. https://pixabay.com/sound-effects/people-whoo-37516/
+Cinnamon. (n.d.). whoo [Sound effect]. Pixabay. https://pixabay.com/sound-effects/people-whoo-37516/
 
-reg7784. (n.d.). Defibrillator [Sound effect]. Pixabay. https://pixabay.com/sound-effects/film-special-effects-defibrillator-6961/
+Reg7784. (n.d.). Defibrillator [Sound effect]. Pixabay. https://pixabay.com/sound-effects/film-special-effects-defibrillator-6961/
 
-Rudmer_Rotteveel. (n.d.). Pill bottle quick shaking out pills 02 [Sound effect]. Pixabay. https://pixabay.com/sound-effects/household-pill-bottle-quick-shaking-out-pills-02-38710/
+Rotteveel, R. (n.d.). Pill bottle quick shaking out pills 02 [Sound effect]. Pixabay. https://pixabay.com/sound-effects/household-pill-bottle-quick-shaking-out-pills-02-38710/
 
 Music
 
-HitsLab. (n.d.). Elevator: Elevator music background [Music]. Pixabay. https://pixabay.com/music/cafe-elevator-elevator-music-background-278381/
+HitsLab. (n.d.). Elevator music background [Music track]. Pixabay. https://pixabay.com/music/cafe-elevator-elevator-music-background-278381/
 
-MagalyStudio. (n.d.). Medical services [Music]. Pixabay. https://pixabay.com/music/corporate-medical-services-519652/
+MagalyStudio. (n.d.). Medical services [Music track]. Pixabay. https://pixabay.com/music/corporate-medical-services-519652/
 
-Fonts
+Sprites, Fonts, and Asset Packs
 
-SPOICAT. (n.d.). Spofonts. itch.io. https://spoicat.itch.io/spofonts
+Silverteacup. (n.d.). Assets pixel art – Hospital [Asset pack]. itch.io. https://silverteacup.itch.io/asset-pack-hospital-isometric-pixelart
 
-Sprites & Assets
+SoppyCraft. (n.d.). Hospital top-down pixel pack [Free] [Asset pack]. itch.io. https://soppycraft.itch.io/top-down-hospital
 
-silverteacup. (n.d.). Assets pixel art: Hospital. itch.io. https://silverteacup.itch.io/asset-pack-hospital-isometric-pixelart
+SPOICAT. (n.d.). Spofonts [Font package]. itch.io. https://spoicat.itch.io/spofonts
 
-SoppyCraft. (n.d.). Hospital top-down pixel pack [Free]. itch.io. https://soppycraft.itch.io/top-down-hospital
+Artwork
 
+Moonhauzen Studio. (n.d.). Pixel doctor character [Digital artwork]. Dribbble. https://dribbble.com/shots/2082762-Pixel-Doctor-Character
 
 
 Simplified Sources:
@@ -48,9 +49,6 @@ medical services - by MagalyStudio - https://pixabay.com/music/corporate-medical
 
 Elevator - Elevator Music Background - by HitsLab - https://pixabay.com/music/cafe-elevator-elevator-music-background-278381/
 
-Hospital Top-Down Pixel Pack [Free] - by SoppyCraft - https://soppycraft.itch.io/top-down-hospital
-
-Spofonts - by SPOICAT - https://spoicat.itch.io/spofonts
 
 Sprites:
 Hospital Top-Down Pixel Pack [Free] - by SoppyCraft - https://soppycraft.itch.io/top-down-hospital
@@ -58,3 +56,7 @@ Hospital Top-Down Pixel Pack [Free] - by SoppyCraft - https://soppycraft.itch.io
 Spofonts - by SPOICAT - https://spoicat.itch.io/spofonts
 
 Assets Pixal Art - Hospital - by silverteacup - https://silverteacup.itch.io/asset-pack-hospital-isometric-pixelart
+
+Pixel Doctor Character - Moonhauzen Studio - https://dribbble.com/shots/2082762-Pixel-Doctor-Character
+
+Hospital Top-Down Pixel Pack [Free] - by SoppyCraft - https://soppycraft.itch.io/top-down-hospital
