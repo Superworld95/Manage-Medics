@@ -9149,7 +9149,7 @@ MonoBehaviour:
   m_text: "1. Mouse over patients to see their condition. \n2. Click on a medic on
     the left. \n3. Click on a ? and patient in any order. Choose 3 tasks or click
     Go.\n4. Click on medics doing the wrong operation.\n5. Make sure patients survive,
-    else lose HP."
+    else lose HP.\n6. No pausing is possible. Good luck!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aee83710eaa0cbe43ab341e06bcb4ed8, type: 2}
   m_sharedMaterial: {fileID: -1317809827641016009, guid: aee83710eaa0cbe43ab341e06bcb4ed8, type: 2}
@@ -9158,8 +9158,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
