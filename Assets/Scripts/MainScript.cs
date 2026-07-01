@@ -79,6 +79,10 @@ public class MainScript : MonoBehaviour
         //print("Time: " + time);
         switch (time)
         {
+            case > 0 when time < 1:
+                SetPatient(0, 0, 55f, false);
+                SetPatient(1, 0, 55f, false);
+                break;
             /*
             case > 1 when time < 2: //THIS WILL BE REMOVED.
                 SetPatient(0, 0, 900f, false);
@@ -96,7 +100,7 @@ public class MainScript : MonoBehaviour
                 break;
                 */
 
-                //RESTORE THIS LATER
+            //RESTORE THIS LATER
             case >20 when time<21:
                 SetPatient(2, 0, 55f, false);
                 break;
@@ -312,6 +316,7 @@ public class MainScript : MonoBehaviour
         patientScriptInitial = patientCast[num].GetComponent<PatientScript>();
         patientScriptInitial.ailment = ailment;
         patientScriptInitial.time = time;
+        patientScriptInitial.timeC = patientScriptInitial.time;
         patientScriptInitial.isSupplyBox = isSupplyBox;
     }
 

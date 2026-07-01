@@ -10,7 +10,7 @@ public class PatientScript : MonoBehaviour
 {
     public Rigidbody2D rb;
     public int patientNumber = 0, scoreValue = 10;
-    public float time = 10f;
+    public float time = 10, timeC = 0f;
     public int ailment = 0; //0 is poiso, 1 is CPR, 2 is surgery.
     public TMP_Text[] uIInformation = new TMP_Text[4];
     public MainScript mainScript;
@@ -23,6 +23,8 @@ public class PatientScript : MonoBehaviour
 
     public SpriteRenderer selfSprite, boxSprite;
     public GameObject eyesObj, boxDecor;
+    public Slider slider;
+    public GameObject selectedIndicator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -53,7 +55,13 @@ public class PatientScript : MonoBehaviour
         {
             uIInformation[3].text = "Needs:";
         }
-
+        if (!selectedAlready)
+        {
+            selectedIndicator.SetActive(true);
+        } else
+        {
+            selectedIndicator.SetActive(false);
+        }
         if (time <= 1f)
         {
             mainScript.LoseScore(scoreValue);
@@ -65,6 +73,8 @@ public class PatientScript : MonoBehaviour
         {
             //print(Time.deltaTime);
             time -= 1f/(60f*4f);
+            slider.value = time/(timeC+20f);
+            print("This should be updating. "+time + " of "+timeC);
             //time--;
         }
         if (Mathf.Floor(time % 60) < 10)
