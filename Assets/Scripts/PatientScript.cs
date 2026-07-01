@@ -22,7 +22,7 @@ public class PatientScript : MonoBehaviour
     public bool selectedAlready = false;
 
     public SpriteRenderer selfSprite, boxSprite;
-    public GameObject eyesObj;
+    public GameObject eyesObj, boxDecor;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,7 +34,8 @@ public class PatientScript : MonoBehaviour
         //screenPos = Input.mousePosition;
         //screenPos = Mouse.current.position;
         uIInformation[3].gameObject.SetActive(false);
-        boxSprite.enabled = false;
+        //boxSprite.enabled = false;
+        boxDecor.SetActive(false);
     }
 
     // Update is called once per frame
@@ -108,13 +109,15 @@ public class PatientScript : MonoBehaviour
             //rb.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
             selfSprite.enabled = false;
             eyesObj.SetActive(false);
-            boxSprite.enabled = true;
+            //boxSprite.enabled = true;
+            boxDecor.SetActive(true);
         } else
         {
             //rb.gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
             selfSprite.enabled = true;
             eyesObj.SetActive(true);
-            boxSprite.enabled = false;
+            //boxSprite.enabled = false;
+            boxDecor.SetActive(false);
         }
     }
     void FixedUpdate()

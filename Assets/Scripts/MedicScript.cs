@@ -515,7 +515,7 @@ public class MedicScript : MonoBehaviour
                 {
                     if (doingWrongOperation)
                     {
-                        durationAmount = 1.5f / 60f;
+                        durationAmount = 1f / 60f;
                     } else
                     {
                         durationAmount = 3f / 60f;
@@ -526,7 +526,7 @@ public class MedicScript : MonoBehaviour
                 {
                     if (doingWrongOperation)
                     {
-                        durationAmount = 4f / 60f;
+                        durationAmount = 1f / 60f;
                     }
                     else
                     {
